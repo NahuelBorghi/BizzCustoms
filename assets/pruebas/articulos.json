@@ -1,0 +1,231 @@
+[
+   {
+      "id":"001",
+      "nombre":"Elevador de monitor (aluminio)",
+      "imagenes":[
+         "../assets/images/productos/elevador aluminio.png",
+         ""
+      ],
+      "tipo":"2",
+      "subtipo":"",
+      "precio":"0",
+      "colores":[
+         "blanco",
+         "negro"
+      ]
+   },
+   {
+      "id":"002",
+      "nombre":"Elevador de monitor (madera)",
+      "imagenes":[
+         "../assets/images/productos/elevador madera.png",
+         ""
+      ],
+      "tipo":"1",
+      "subtipo":"",
+      "precio":"0",
+      "colores":[
+         "marron",
+         ""
+      ]
+   },
+   {
+      "id":"003",
+      "nombre":"Reposa muñecas (madera)",
+      "imagenes":[
+         "../assets/images/productos/madera apoyabrazo.png",
+         ""
+      ],
+      "tipo":"3",
+      "subtipo":"",
+      "precio":"0",
+      "colores":[
+         "marron",
+         ""
+      ]
+   },
+   {
+      "id":"004",
+      "nombre":"Barra espaciadora (madera)",
+      "imagenes":[
+         "../assets/images/productos/madera espacio.png",
+         ""
+      ],
+      "tipo":"3",
+      "subtipo":"",
+      "precio":"0",
+      "colores":[
+         "marron",
+         ""
+      ]
+   },
+   {
+      "id":"005",
+      "nombre":"Kit teclas de madera",
+      "imagenes":[
+         "../assets/images/productos/kit madera.png",
+         ""
+      ],
+      "tipo":"2",
+      "subtipo":"",
+      "precio":"0",
+      "colores":[
+         "marron",
+         ""
+      ]
+   },
+   {
+      "id":"006",
+      "nombre":"Kit extensiones",
+      "imagenes":[
+         "../assets/images/productos/kit extension blanco.png",
+         ""
+      ],
+      "tipo":"3",
+      "subtipo":"",
+      "precio":"0",
+      "colores":[
+         "blanco",
+         "negro",
+         "verde",
+         "azul",
+         "rojo",
+         "rosa",
+         "violeta",
+         "naranja",
+         "amarillo",
+         ""
+      ]
+   },
+   {
+      "id":"007",
+      "nombre":"Soporte vertical de GPU",
+      "imagenes":[
+         "../assets/images/productos/soporte gpu.png",
+         ""
+      ],
+      "tipo":"1",
+      "subtipo":"",
+      "precio":"0",
+      "colores":[
+         "negro",
+         "RGB",
+         ""
+      ]
+   },
+   {
+      "id":"008",
+      "nombre":"Soporte horizontal de GPU",
+      "imagenes":[
+         "../assets/images/productos/soporte gpu horizontal.png",
+         ""
+      ],
+      "tipo":"1",
+      "subtipo":"",
+      "precio":"0",
+      "colores":[
+         "blanco",
+         "negro",
+         "verde",
+         "azul",
+         "rojo",
+         "rosa",
+         "violeta",
+         "naranja",
+         "amarillo",
+         ""
+      ]
+   },
+   {
+      "id":"009",
+      "nombre":" Kit cable usb",
+      "imagenes":[
+         "../assets/images/productos/usb.png",
+         ""
+      ],
+      "tipo":"2",
+      "subtipo":"",
+      "precio":"0",
+      "colores":[
+         "blanco",
+         "negro",
+         "verde",
+         "azul",
+         "rojo",
+         "rosa",
+         "violeta",
+         "naranja",
+         "amarillo",
+         ""
+      ]
+   },
+   {
+      "id":"010",
+      "nombre":"Cable forrado jack 3.5 estereo",
+      "imagenes":[
+         "../assets/images/productos/sleeved 3.5.png",
+         ""
+      ],
+      "tipo":"1",
+      "subtipo":"",
+      "precio":"0",
+      "colores":[
+         "blanco",
+         "negro",
+         "verde",
+         "azul",
+         "rojo",
+         "rosa",
+         "violeta",
+         "naranja",
+         "amarillo",
+         ""
+      ]
+   },
+   {
+      "id":"011",
+      "nombre":"Cable trenzado forrado jack 3.5 estereo",
+      "imagenes":[
+         "../assets/images/productos/trenza jack 3,5.png",
+         ""
+      ],
+      "tipo":"2",
+      "subtipo":"",
+      "precio":"0",
+      "colores":[
+         "blanco",
+         "negro",
+         "verde",
+         "azul",
+         "rojo",
+         "rosa",
+         "violeta",
+         "naranja",
+         "amarillo",
+         ""
+      ]
+   },
+   {
+      "id":"012",
+      "nombre":"kit extensiones en L",
+      "imagenes":[
+         "../assets/images/productos/extension en L.png",
+         ""
+      ],
+      "tipo":"2",
+      "subtipo":"",
+      "precio":"0",
+      "colores":[
+         "blanco",
+         "negro",
+         "verde",
+         "azul",
+         "rojo",
+         "rosa",
+         "violeta",
+         "naranja",
+         "amarillo",
+         ""
+      ]
+   }
+]

@@ -1,0 +1,208 @@
+.filtros{
+    color: $primario;
+}
+@media only screen and (min-width: 1200px){.filtros{margin-left: 15%;}}
+#aceptar{
+    background-color: white;
+    color: $primario;
+    @include borde(10px,$primario);
+    padding: 3px;
+    font-weight: 600 ;
+}
+#aceptar:hover{
+    border-color: $secundario;
+    color: $secundario;
+    transition: 1s;
+}
+#precio{display: inline-block;}
+.numeros{
+    width: 80px;
+    @include borde(10px,$primario);
+    padding: 3px;
+}
+.numeros:focus{
+    outline: none;
+    border-color: $secundario;
+    color: $secundario;
+    border-width: 3px;
+    padding: 0px;
+    transition: 1s;
+}
+.desplegable{
+    @include borde(10px,$primario);
+    padding: 3px;
+    color: $primario;
+    font-weight: 600;
+}
+.desplegable:focus{
+    outline: none;
+    border-color: $secundario;
+    color: $secundario;
+    border-width: 3px;
+    padding: 0px;
+    transition: 1s;
+}
+.paginacion{
+    max-width: 90%;
+    text-align: center;
+    margin: 2%;
+}
+.itemPagina{
+    display: inline;
+    @include borde(10px,$primario);
+    font-weight: 700;
+    font-variant: small-caps;
+    padding: 5px;
+    margin-right: 2px;
+}
+.itemPagina:hover{border-color: $primario ;box-shadow: 0 0.25rem 10px $primario;transition: 1s;}
+
+.contacto{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 10px;
+    margin-top: 10px;
+    color: $primario;
+    width: 100%;
+    height: 70%;
+}
+@media only screen and (max-width:768px){.contacto{height: 90%;}}
+.contacto hr{
+    display: none;
+}
+.contacto .redes{
+    @include borde(15px,$primario);
+    box-shadow: 0 0 15px $primario;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 2%;
+    padding-right: 2%;
+    width: 20%;
+    height: auto;
+}
+@media only screen and (min-width:768px){.contacto .redes{font-size: $enorme;}}
+@media only screen and (max-width:900px){.contacto .redes{width: 25%;}}
+.contacto .mail{
+    width: 40%;
+    height: auto;
+    padding: 5%;
+    @include borde(15px,$primario);
+    box-shadow: 0 0 15px $primario;
+    form{
+        height: 100%;
+        width: 100%;
+        .datos{
+            margin: 5px;
+            @include borde(10px,$primario);
+        }
+        @media only screen and (max-width:768px){.datos{width: 85%;}}
+        .datos:focus{
+            outline: none;
+            border-color: $secundario;
+            color: $secundario;
+            border-width: 3px;
+            padding: 2px;
+            transition: 1s;
+            margin: 3px;
+        }
+        #desplegable{
+            @include borde(10px,$primario);
+        }
+        @media only screen and (max-width:768px){#desplegable{width: 100%;}}
+        #desplegable:focus{
+            padding: 2px;
+            transition: 1s;
+            outline: none;
+        }
+        input[type="checkbox"]{
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        textarea{
+            display: block;
+            height: 250px;
+            width: 80%;
+            @include borde(10px,$primario);
+            resize: none;
+            margin-bottom: 15px;
+        }
+        textarea:focus{
+            outline: none;
+            border-color: $secundario;
+            color: $secundario;
+            padding: 5px;
+            transition: 1s;
+            margin-bottom: 10px;
+        }
+        .boton{
+            background-color: white;
+            @include borde(10px,$primario);
+            padding: 5px;
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+    }
+}
+@media only screen and (max-width:768px){.contacto .mail{padding: 2%;}}
+@media only screen and (max-width:900px){.contacto .mail{width: 35%;}}
+
+
+.listaArticulos{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 10px;
+    max-width: 100%;
+    margin: 10px;
+    
+}
+.article{
+    width: 20rem;
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    justify-content: space-between;
+    border: 2px solid $primario;
+    border-radius: 10px;
+    box-shadow: 0 0 15px $primario;
+    img{
+        max-width: 70%;
+        max-height: 80%;
+    }
+}
+
+form{
+    div{
+        display: inline-block;
+        margin: 5px;
+    }
+}
+@media screen and(min-width:900px) {.listaArticulos{grid-template-columns: repeat(3,1fr);max-width: 80%;}}
+@media screen and(min-width:1200px) {.listaArticulos{grid-template-columns: repeat(4,1fr);max-width: 70%;margin-left: 25px;margin-right: 25px;}}
+
+.asideLeft{
+    float: left;
+    clear: both;
+    width: 15%;
+    padding: 10px;
+    margin: 20px;
+    height: fit-content;
+    border: 2px solid $primario;
+    border-radius: 10px;
+    ul{
+        color: $primario;
+        li{
+            margin-top: 10px;
+        }
+    }
+}
+
+#right{
+    display: none;
+    .producto{
+        font-family: $yanone;
+    }
+}

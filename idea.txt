@@ -1,0 +1,33 @@
+productos
+hacer un panel lateral desplegable que con ajax muestre el producto que se selecciono junto con su precio, cuotas, info, etc. de esta forma no necesito backend para usar una plantilla html de producto
+necesito utilizar ajax para leer un archivo .json del servidor y usar sus datos para llenar o crear esta nueva seccion de la pagina.
+tengo que encontrar la forma de saber a cual articulo le hicieron click aunque cambie el orden de los mismos segun los filtros
+podria agregar un boton de "detalles" para enviar un value con el nombre de lo que quiero ver a la funcion que va a cargar el panel lateral, este value lo pondria al momento de crear el articulo o el eventListener para el articulo
+en caso de poder usar sql para los filtros, podria armar cada articulo con sus propiedades dentro de esta una base de datos.
+--------------------------------------------------------------------------------------------------
+clase articulo
+atributos: id,nombre,imagenes(array),tipo,subtipo(no hay subtipo si es ==0),precio, color.
+clase producto
+atributos: id,nombre,marca,altura,largo,ancho,peso,materiales(array),conexiones(string),consumo,otros.
+
+en caso de necesitar enlazar los arreglos de articulos con productos. tendria que hacer coincidir los atributos id y nombre.
+podria guardar el id del ultimo articulo que mostre en la pagina para empezar a contar desde ahi en la siguiente pagina haciendolo de forma asincrona.
+podria conseguir el valor de las paginas a partir de una funcion que retorne un array con los id cada 11 posiciones, entonces segun la pagina que necesito busco en el array la posicion y leo el valor de este array que se crearia cada vez que consulto un cambio de pagina.
+--------------------------------------------------------------------------------------------------
+filtros(productos)
+intentar hacer que el orden de los articulos se cambie sin recargar la pagina, el resto de filtros no.
+hacer arrays de objetos para crear articulos?
+deberia crear los articulos desde js a partir de un archivo .json?
+podria emplear algo basico de sql para los filtros?
+--------------------------------------------------------------------------------------------------
+calculadora de watts
+tengo que hacer una mini base de datos en texto plano con formato json para sacar la info a la hora de hacer los calculos de watts que consumiria una pc
+para el consumo de los procesadores y de las placas de video, puedo usar la base de datos de techpowerup para llenar esos datos. creo que tengo que cargarlos a mano :c
+en pcpartpicker puedo encontrar toda la informacion pero tambien tengo que cargarla a mano
+--------------------------------------------------------------------------------------------------
+compatibilidad
+tengo que hacer otra mini base de datos con modelos y caracteristicas de la misma forma que la anterior pero guardando un array de objetos. objetos que tendrian dentro un tipo (mother, cpu, gpu, etc) fabricante (gigabyte,msi,amd,etc.) notas (dependiendo del tipo: solo soporta dos modulos de ram, no soporta apus sin gpu dedicada, no le entran placas formato atx, no esta desbloqueado para overclock, etc.) tamaño (alto x ancho, alto x ancho x profundidad) y mas
+--------------------------------------------------------------------------------------------------
+carrito
+tengo que hacerlo funcionar con el localstorage y agregar un boton al panel lateral de producto que tengo que crear.
+--------------------------------------------------------------------------------------------------
