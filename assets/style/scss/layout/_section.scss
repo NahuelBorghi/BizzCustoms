@@ -155,7 +155,11 @@
     grid-gap: 10px;
     max-width: 100%;
     margin: 10px;
-    
+    button{
+        background-color: inherit;
+        color: inherit;
+        outline: none;
+    }
 }
 .article{
     width: 20rem;
@@ -200,8 +204,28 @@ form{
     }
 }
 
+#fondo{
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    height: 110%;
+    width: 100%;
+    background-color: #212121AA;
+    z-index: 1;
+}
+
 #right{
-    display: none;
+    position: absolute;
+    left: 50%;
+    top: 18%;
+    height: 82%;
+    width: 47.5%;
+    background-color: $oscuro;
+    border: 2px solid $primario;
+    border-radius: 10px;
+    box-shadow: 0 0 15px $primario;
+    padding: 1%;
+    z-index: 2;
     .producto{
         font-family: $yanone;
     }

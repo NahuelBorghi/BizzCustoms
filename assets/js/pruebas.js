@@ -12,11 +12,11 @@ class articulo{
     }
     article(contenedor){
         var hijo = document.createElement("div");
-        hijo.innerHTML =`<div class="article">
+        hijo.innerHTML =`<button class="article" value=${this.id}>
                             <img src="${this.imagenes[0]}" />
                             <a class="producto">${this.nombre}</a>
                             <p>$ ${this.precio}</p>
-                        </div>`;
+                        </button>`;
         contenedor.appendChild(hijo);
     }
 }
@@ -48,7 +48,7 @@ function pruebaswasd(){
     en este caso*/
     hijo.innerHTML =    `<h4> casa </h4><br>
                         <h1> casota ${i} </h1>`;
-
+    hijo.setAttribute("class","article");
     /* poniendo texto html entre `` que no son las comillas simples como estas '' puedo usar las variables fuera
     del texto poniendo un signo de dolar y entre llaves como se ve arriba para mostrarlas en el elemento que
     estoy creando */
@@ -80,6 +80,7 @@ function pruebas(){
                                         <option value="rosa">rosa</option>
                                         <option value="verde">verde</option>
                                         <option value="violeta">violeta</option>
+                                        <option value="marron">marron</option>
                                     </select>
                                     <select class="desplegable" name="orden" style="display: inline; margin-left: 20px;">
                                         <option value="recomendados">recomendados</option>
@@ -93,31 +94,68 @@ function pruebas(){
                             </div>
                             <div class="listaArticulos"></div>
                             <div class="paginacion"></div>
+                            <div id="fondo"></div>
                             <div id="right"></div>`;
     var url = "../assets/pruebas/articulos.json"
     var peticion = new XMLHttpRequest()
     peticion.onreadystatechange= function (){
         if(this.readyState==4 && this.status ==200){
+            $('#fondo').hide();
+            $('#right').hide();
             let articulos=JSON.parse(this.response);
-            let array=listaArticulos(articulos,"012");
+            //let UltimoIdPagina = localStorage.getItem("ultimoIdPagina");
+            var array=listaArticulos(articulos,"006");
             tipos(articulos);
             paginacion(array.length);
+            $('.article').on('click', productoDesplegable);
         }
         tema();
     };
     peticion.open("GET", url, true);
     peticion.send();
 }
+function productoDesplegable(){
+    let contenedor = document.getElementById("right");
+    alert(this.value);
+    mostrarDetalles();
+}
+function mostrarDetalles(){
+    $('#fondo').toggle(0);
+    $('#right').toggle(700);
+    $('#fondo').on('click',()=>{
+        $('#fondo').hide(0);
+        $('#right').hide(500);
+    });
+}
 /*buscar solucion para cuando sean mas de 12 articulos en el JSON
     localStorage.setItem("UltimoIdPagina",array[i].id);*/
 
-function listaArticulos(articulos,UltimoIdPagina){ /*hay que pasarle el ultimo id de pagina en forma de string porque sino lo toma como un 10 en vez de 012*/
+function listaArticulos(articulos,UltimoIdPagina){ //hay que pasarle el ultimo id de pagina en forma de string porque sino lo toma como un 10 en vez de 012
+    let contenedor = document.getElementsByClassName("listaArticulos")[0];
+    let array=[];
+    let articulito;
+    var i=0;
+    var idArticulos=articulos.map( articulos => articulos.id);
+    for(i =idArticulos.indexOf(UltimoIdPagina);i<(i+11);i++){
+        if(articulos[i+1].id == undefined){
+            break;
+        }
+        articulito = new articulo(articulos[i+1].id,articulos[i+1].nombre,articulos[i+1].imagenes,articulos[i+1].tipo,articulos[i+1].subtipo,articulos[i+1].precio,articulos[i+1].colores)
+        array.push(articulito);
+        articulito.article(contenedor);
+        if((i%11)==0&&i!=0){
+            break;
+        }
+    }
+    return array;
+}
+/*function listaArticulos(articulos){ 
     let contenedor = document.getElementsByClassName("listaArticulos")[0];
     let array=[];
     var i=0;
     var idArticulos=articulos.map( articulos => articulos.id);
-    for(i = idArticulos.indexOf(UltimoIdPagina)+1;i<(i=12);i++){
-        if(array[i] == undefined){
+    for(i in articulos){
+        if(articulos[i] == undefined){
             break;
         }
         array.push(new articulo(articulos[i].id,articulos[i].nombre,articulos[i].imagenes,articulos[i].tipo,articulos[i].subtipo,articulos[i].precio,articulos[i].colores));
@@ -127,8 +165,7 @@ function listaArticulos(articulos,UltimoIdPagina){ /*hay que pasarle el ultimo i
         }
     }
     return array;
-}
-
+}*/
 function tipos(articulos){
     if(articulos[0]!= undefined){
     var tipos=[articulos[0].tipo];

@@ -227,5 +227,29 @@
          "amarillo",
          ""
       ]
+   },
+   {
+      "id":"013",
+      "nombre":"algo",
+      "imagenes":[
+         "",
+         ""
+      ],
+      "tipo":"",
+      "subtipo":"",
+      "precio":"0",
+      "colores":[
+         "blanco",
+         "negro",
+         "verde",
+         "azul",
+         "rojo",
+         "rosa",
+         "violeta",
+         "naranja",
+         "amarillo",
+         "RGB",
+         ""
+      ]
    }
 ]

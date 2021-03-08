@@ -54,6 +54,9 @@ nav {
     margin: 5px;
     padding: 5px;
     border-radius: 5px; }
+    nav ul li a:hover {
+      transition: 0.75s;
+      color: black; }
   nav ul li:last-child {
     margin-right: 10%; }
   nav ul .active {
@@ -315,6 +318,10 @@ footer {
   grid-gap: 10px;
   max-width: 100%;
   margin: 10px; }
+  .listaArticulos button {
+    background-color: inherit;
+    color: inherit;
+    outline: none; }
 
 .article {
   width: 20rem;
@@ -361,8 +368,27 @@ form div {
     .asideLeft ul li {
       margin-top: 10px; }
 
+#fondo {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  height: 110%;
+  width: 100%;
+  background-color: #212121AA;
+  z-index: 1; }
+
 #right {
-  display: none; }
+  position: absolute;
+  left: 50%;
+  top: 18%;
+  height: 82%;
+  width: 47.5%;
+  background-color: #212121;
+  border: 2px solid #414E89;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #414E89;
+  padding: 1%;
+  z-index: 2; }
   #right .producto {
     font-family: "Yanone Kaffeesatz", sans-serif; }
 
