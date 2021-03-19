@@ -1,11 +1,11 @@
 const primario= "#414E89", secundario= "#4FAEE1", oscuro= "#212121", secundarioAlpha = "#4fAEE199", primarioAlpha = "#414E89BB";
 
-
+$("form").on("submit",busqueda);
 tema();
-/*window.addEventListener("DOMNodeInserted",tema);*/
 
 function tema(){
     var tag=localStorage.getItem('tag');/*1=claro 0=oscuro */
+    
     if (tag==1){
         temaClaro();
     }else if(tag==0){
@@ -195,6 +195,5 @@ function article (tag){
     }
 }
 function busqueda(){
-    var palabra = document.getElementById("buscar").value;
-    alert("funcion en desarrollo. usted quiere buscar "+'"'+palabra+'"');
-}
+    alert('buscaste "'+$('#buscar').val()+'"');
+    return false;}

@@ -10,7 +10,7 @@ class articulo{
         this.precio=precio;
         this.colores=colores;
     }
-    article(contenedor){
+    article(contenedor){ //las imagenes ya se cargar como queria. ahora en el css hay que crear la galeria
         var hijo = document.createElement("div");
         hijo.innerHTML =`<button class="article" value=${this.id}>
                             <img src="${this.imagenes[0]}" />
@@ -18,6 +18,104 @@ class articulo{
                             <p>$ ${this.precio}</p>
                         </button>`;
         contenedor.appendChild(hijo);
+    }
+}
+
+class product {
+    constructor(id,nombre,precio,marca,altura,largo,ancho,peso,materiales,conexiones,consumo,otros,coloresarticulo,imagenes){
+        this.id=id;
+        this.nombre=nombre;
+        this.precio=precio;
+        this.marca=marca;
+        this.altura=altura;
+        this.largo=largo;
+        this.ancho=ancho;
+        this.peso=peso;
+        this.materiales=materiales;
+        this.conexiones=conexiones;
+        this.consumo=consumo;
+        this.otros=otros;
+        this.colores=coloresarticulo;
+        this.imagenes=imagenes;
+    }
+    img(contenedor){
+        let array = this.imagenes;
+        alert (this.imagenes);
+        let i=0;
+        while (array[i] != ""){
+            var hijo = document.createElement("img");
+            hijo.src =array[i];
+            contenedor.appendChild(hijo);
+            i++;
+        }
+    }
+    Detalles(contenedor,id){
+        if(this.id == id){//agregar funcion de imagenes, colores y materiales
+            contenedor.innerHTML=`<div id="imagenes">
+
+                                </div>
+                                <div id="general">
+                                    
+                                </div>
+                                <div id="detalles">
+                                    
+                                </div>`;
+            contenedor=document.getElementById("imagenes");
+            this.img(contenedor);
+            contenedor=document.getElementById("general");
+            contenedor.innerHTML=`<h2>${this.nombre}</h2>
+                                    <p>$${this.precio}</p>
+                                    <form action="" method="get" enctype="multipart/form-data">
+                                        <input class="boton" type="submit" value="Calcular Cuotas"/>
+                                    </form>
+                                    <img src="" href=""> <!--imagen de tarjetas con su link a las promociones bancarias-->
+                                    <img src="" href=""> <!--imagen de camion para envios-->
+                                    <form action="" method="get" enctype="multipart/form-data">
+                                        <p>codigo postal</p>
+                                        <input type="text" placeholder="CP"/>
+                                    </form>
+                                    <p>costo de envio: $xxx.xx</p>
+                                    <form action="" method="get" enctype="multipart/form-data">
+                                        <p>cantidad</p>
+                                        <select id="desplegable" name="asunto" style="display: block">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                        <input type="submit" value="sumar al carrito"/>
+                                    </form>`;
+            contenedor=document.getElementById("detalles");
+            contenedor.innerHTML=`<h3><hr>detalles</h3>
+                                    <p> tecnologia del producto </p>
+                                    <h4><hr>Especificaciones</h4>
+                                    <table>
+                                        <tr>
+                                            <th>Caracteristicas generales</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Largo</td>
+                                            <td> ${this.largo} Cm</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ancho</td>
+                                            <td> ${this.ancho} Cm</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Alto</td>
+                                            <td> ${this.altura} Cm</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Color</td>
+                                            <td>RGB</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Materiales</td>
+                                            <td></td>
+                                        </tr>
+                                    </table><hr>`;
+        }
     }
 }
 
@@ -104,10 +202,12 @@ function pruebas(){
             $('#right').hide();
             let articulos=JSON.parse(this.response);
             //let UltimoIdPagina = localStorage.getItem("ultimoIdPagina");
-            var array=listaArticulos(articulos,"006");
+            let array=listaArticulos(articulos,"001");
             tipos(articulos);
-            paginacion(array.length);
-            $('.article').on('click', productoDesplegable);
+            let idArticulos=articulos.map( articulos => articulos.id);
+            let i =idArticulos.indexOf("001");
+            paginacion(articulos,articulos.length,i);
+            $('.listaArticulos').ready(()=>{$('.article').on('click', productoDesplegable);});
         }
         tema();
     };
@@ -115,32 +215,85 @@ function pruebas(){
     peticion.send();
 }
 function productoDesplegable(){
-    let contenedor = document.getElementById("right");
-    alert(this.value);
+    obtenerDetalles(this.value);
     mostrarDetalles();
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+function crearDetalles(producto,id){
+    let url = "../assets/pruebas/articulos.json";
+    var peticion = new XMLHttpRequest();
+    peticion.onreadystatechange = function (){
+        if(this.readyState==4 && this.status ==200){
+        var articulos=JSON.parse(this.response);
+        var article=buscarProducto(articulos,id);
+        let productito = new product (producto.id,producto.nombre,producto.precio,producto.marca,producto.altura,producto.largo,producto.ancho,producto.peso,producto.materiales,producto.conexiones,producto.consumo,producto.otros,article.colores,article.imagenes);
+        let contenedor = document.getElementById("right");
+        productito.Detalles(contenedor,id);
+    }
+    };
+    peticion.open("GET", url, true);
+    peticion.send();
+}
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+function obtenerDetalles(id){
+    var url = "../assets/pruebas/productos.json";
+    var peticion = new XMLHttpRequest();
+    peticion.onreadystatechange= function (){
+        if(this.readyState==4 && this.status ==200){
+            let productos=JSON.parse(this.response);
+            let producto=buscarProducto(productos,id);
+            crearDetalles(producto,id);
+        }
+        tema();
+    };
+    peticion.open("GET", url, true);
+    peticion.send();
+    
+}
+function buscarProducto (productos,id){
+    var i=0;
+    while(productos[i].id!=id){
+        if(productos[i].id=="000"){
+            return "Error";
+        }
+        i++;
+    }
+    return productos[i];
 }
 function mostrarDetalles(){
     $('#fondo').toggle(0);
     $('#right').toggle(700);
     $('#fondo').on('click',()=>{
         $('#fondo').hide(0);
-        $('#right').hide(500);
+        $('#right').hide(500,borrarDetalles());
+        
     });
+}
+function borrarDetalles(){
+    let contenedor = document.getElementById("right");
+    contenedor.innerHTML= ``;
 }
 /*buscar solucion para cuando sean mas de 12 articulos en el JSON
     localStorage.setItem("UltimoIdPagina",array[i].id);*/
 
-function listaArticulos(articulos,UltimoIdPagina){ //hay que pasarle el ultimo id de pagina en forma de string porque sino lo toma como un 10 en vez de 012
+function listaArticulos(articulos,desde){ //hay que pasarle el ultimo id de pagina en forma de string porque sino lo toma como un 10 en vez de 012
     let contenedor = document.getElementsByClassName("listaArticulos")[0];
     let array=[];
     let articulito;
-    var i=0;
     var idArticulos=articulos.map( articulos => articulos.id);
-    for(i =idArticulos.indexOf(UltimoIdPagina);i<(i+11);i++){
-        if(articulos[i+1].id == undefined){
+    idArticulos=idArticulos.indexOf(desde);
+    var i=0;
+    for(i;i>-1;i++){
+        if(articulos[i+idArticulos].id == "000"){
             break;
         }
-        articulito = new articulo(articulos[i+1].id,articulos[i+1].nombre,articulos[i+1].imagenes,articulos[i+1].tipo,articulos[i+1].subtipo,articulos[i+1].precio,articulos[i+1].colores)
+        articulito = new articulo(articulos[i+idArticulos].id,articulos[i+idArticulos].nombre,articulos[i+idArticulos].imagenes,articulos[i+idArticulos].tipo,articulos[i+idArticulos].subtipo,articulos[i+idArticulos].precio,articulos[i+idArticulos].colores)
         array.push(articulito);
         articulito.article(contenedor);
         if((i%11)==0&&i!=0){
@@ -192,16 +345,19 @@ function tipos(articulos){
     }
 }
 
-function paginacion (cantidad){
+function paginacion (articulos,cantidad,desde){
     let contenedor = document.getElementsByClassName("paginacion")[0];
     contenedor.innerHTML=`<p>pagina:</p>`;
-    if(Math.round((cantidad/12)+0.49)>1){
-        contenedor.innerHTML= contenedor.innerHTML+`<a class="itemPagina" href=""> < anterior </a>`;
-    }
+    let c=desde;
     for(i=1;i<=Math.round((cantidad/12)+0.49);i++){
-        contenedor.innerHTML= contenedor.innerHTML+ `<a class="itemPagina" href=""> ${i} </a>`
-    }
-    if(Math.round((cantidad/12)+0.49)>1){
-        contenedor.innerHTML= contenedor.innerHTML+`<a class="itemPagina"  href=""> siguiente > </a>`
+        c=c+12;
+        if (c>(cantidad+desde)){
+            c=cantidad+desde;
+        }
+        let id=articulos[c-1].id;
+        if(articulos[c-1].id=="000"){
+            id=articulos[c-2].id;
+        }
+        contenedor.innerHTML= contenedor.innerHTML+ `<button class="itemPagina" value="${id}">${i}</button>`
     }
 }

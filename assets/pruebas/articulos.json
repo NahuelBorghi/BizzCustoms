@@ -4,6 +4,9 @@
       "nombre":"Elevador de monitor (aluminio)",
       "imagenes":[
          "../assets/images/productos/elevador aluminio.png",
+         "../assets/images/productos/elevador aluminio.png",
+         "../assets/images/productos/elevador aluminio.png",
+         "../assets/images/productos/elevador aluminio.png",
          ""
       ],
       "tipo":"2",
@@ -249,6 +252,44 @@
          "naranja",
          "amarillo",
          "RGB",
+         ""
+      ]
+   },
+   {
+      "id":"014",
+      "nombre":"cosito",
+      "imagenes":[
+         "",
+         ""
+      ],
+      "tipo":"",
+      "subtipo":"",
+      "precio":"0",
+      "colores":[
+         "blanco",
+         "negro",
+         "verde",
+         "azul",
+         "rojo",
+         "rosa",
+         "violeta",
+         "naranja",
+         "amarillo",
+         "RGB",
+         ""
+      ]
+   },
+   {
+      "id":"000",
+      "nombre":"final",
+      "imagenes":[
+         "",
+         ""
+      ],
+      "tipo":"",
+      "subtipo":"",
+      "precio":"0",
+      "colores":[
          ""
       ]
    }
