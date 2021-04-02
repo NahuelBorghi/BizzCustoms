@@ -7,14 +7,18 @@
          "../assets/images/productos/elevador aluminio.png",
          "../assets/images/productos/elevador aluminio.png",
          "../assets/images/productos/elevador aluminio.png",
+         "../assets/images/productos/elevador aluminio.png",
+         "../assets/images/productos/elevador aluminio.png",
+         "../assets/images/productos/elevador aluminio.png",
          ""
       ],
       "tipo":"2",
       "subtipo":"",
-      "precio":"0",
+      "precio":"2849.99",
       "colores":[
          "blanco",
-         "negro"
+         "negro",
+         ""
       ]
    },
    {
@@ -26,7 +30,7 @@
       ],
       "tipo":"1",
       "subtipo":"",
-      "precio":"0",
+      "precio":"3699.99",
       "colores":[
          "marron",
          ""
@@ -41,7 +45,7 @@
       ],
       "tipo":"3",
       "subtipo":"",
-      "precio":"0",
+      "precio":"1600.32",
       "colores":[
          "marron",
          ""
@@ -56,7 +60,7 @@
       ],
       "tipo":"3",
       "subtipo":"",
-      "precio":"0",
+      "precio":"700",
       "colores":[
          "marron",
          ""
@@ -71,7 +75,7 @@
       ],
       "tipo":"2",
       "subtipo":"",
-      "precio":"0",
+      "precio":"1949.49",
       "colores":[
          "marron",
          ""
@@ -86,7 +90,7 @@
       ],
       "tipo":"3",
       "subtipo":"",
-      "precio":"0",
+      "precio":"3899.49",
       "colores":[
          "blanco",
          "negro",
@@ -109,7 +113,7 @@
       ],
       "tipo":"1",
       "subtipo":"",
-      "precio":"0",
+      "precio":"1800",
       "colores":[
          "negro",
          "RGB",
@@ -125,7 +129,7 @@
       ],
       "tipo":"1",
       "subtipo":"",
-      "precio":"0",
+      "precio":"1049.49",
       "colores":[
          "blanco",
          "negro",
@@ -141,14 +145,14 @@
    },
    {
       "id":"009",
-      "nombre":" Kit cable usb",
+      "nombre":"Kit cable usb",
       "imagenes":[
          "../assets/images/productos/usb.png",
          ""
       ],
       "tipo":"2",
       "subtipo":"",
-      "precio":"0",
+      "precio":"1600.38",
       "colores":[
          "blanco",
          "negro",
@@ -164,14 +168,14 @@
    },
    {
       "id":"010",
-      "nombre":"Cable forrado jack 3.5 estereo",
+      "nombre":"Cable forrado 3.5 estereo",
       "imagenes":[
          "../assets/images/productos/sleeved 3.5.png",
          ""
       ],
       "tipo":"1",
       "subtipo":"",
-      "precio":"0",
+      "precio":"530",
       "colores":[
          "blanco",
          "negro",
@@ -187,14 +191,14 @@
    },
    {
       "id":"011",
-      "nombre":"Cable trenzado forrado jack 3.5 estereo",
+      "nombre":"Cable trenzado forrado 3.5 estereo",
       "imagenes":[
          "../assets/images/productos/trenza jack 3,5.png",
          ""
       ],
       "tipo":"2",
       "subtipo":"",
-      "precio":"0",
+      "precio":"659.09",
       "colores":[
          "blanco",
          "negro",
@@ -210,14 +214,14 @@
    },
    {
       "id":"012",
-      "nombre":"kit extensiones en L",
+      "nombre":"Kit extensiones en L",
       "imagenes":[
          "../assets/images/productos/extension en L.png",
          ""
       ],
       "tipo":"2",
       "subtipo":"",
-      "precio":"0",
+      "precio":"2100",
       "colores":[
          "blanco",
          "negro",
@@ -228,54 +232,6 @@
          "violeta",
          "naranja",
          "amarillo",
-         ""
-      ]
-   },
-   {
-      "id":"013",
-      "nombre":"algo",
-      "imagenes":[
-         "",
-         ""
-      ],
-      "tipo":"",
-      "subtipo":"",
-      "precio":"0",
-      "colores":[
-         "blanco",
-         "negro",
-         "verde",
-         "azul",
-         "rojo",
-         "rosa",
-         "violeta",
-         "naranja",
-         "amarillo",
-         "RGB",
-         ""
-      ]
-   },
-   {
-      "id":"014",
-      "nombre":"cosito",
-      "imagenes":[
-         "",
-         ""
-      ],
-      "tipo":"",
-      "subtipo":"",
-      "precio":"0",
-      "colores":[
-         "blanco",
-         "negro",
-         "verde",
-         "azul",
-         "rojo",
-         "rosa",
-         "violeta",
-         "naranja",
-         "amarillo",
-         "RGB",
          ""
       ]
    },
@@ -290,6 +246,17 @@
       "subtipo":"",
       "precio":"0",
       "colores":[
+         "blanco",
+         "negro",
+         "amarillo",
+         "azul",
+         "naranja",
+         "RGB",
+         "rojo",
+         "rosa",
+         "verde",
+         "violeta",
+         "marron",
          ""
       ]
    }

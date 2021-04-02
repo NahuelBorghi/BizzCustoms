@@ -2,7 +2,6 @@
    {
       "id":"001",
       "nombre":"Elevador de monitor (aluminio)",
-      "precio":"0",
       "marca":"BIZZ",
       "altura":"10cm",
       "largo":"42cm",
@@ -19,7 +18,6 @@
    {
       "id":"002",
       "nombre":"Elevador de monitor (madera)",
-      "precio":"0",
       "marca":"BIZZ",
       "altura":"9.5cm",
       "largo":"48.5cm",
@@ -36,7 +34,6 @@
    {
       "id":"003",
       "nombre":"Reposa muñecas (madera)",
-      "precio":"0",
       "marca":"BIZZ",
       "altura":"maximo 1.8cm",
       "largo":"maximo 10cm",
@@ -53,7 +50,6 @@
    {
       "id":"004",
       "nombre":"Barra espaciadora (madera)",
-      "precio":"0",
       "marca":"BIZZ",
       "altura":"1.1cm",
       "largo":"11.2cm",
@@ -70,7 +66,6 @@
    {
       "id":"005",
       "nombre":"Kit teclas de madera",
-      "precio":"0",
       "marca":"BIZZ",
       "altura":"0",
       "largo":"0",
@@ -87,7 +82,6 @@
    {
       "id":"006",
       "nombre":"Kit extensiones",
-      "precio":"0",
       "marca":"BIZZ",
       "altura":"0",
       "largo":"18cm",
@@ -104,7 +98,6 @@
    {
       "id":"007",
       "nombre":"Soporte vertical de GPU",
-      "precio":"0",
       "marca":"DEEP COOL",
       "altura":"16 o 26cm",
       "largo":"5cm",
@@ -122,7 +115,6 @@
    {
       "id":"008",
       "nombre":"Soporte horizontal de GPU",
-      "precio":"0",
       "marca":"BIZZ",
       "altura":"8cm",
       "largo":"18cm",
@@ -139,7 +131,6 @@
    {
       "id":"009",
       "nombre":" Kit cable usb",
-      "precio":"0",
       "marca":"BIZZ",
       "altura":"0",
       "largo":"1.2m",
@@ -155,8 +146,7 @@
    },
    {
       "id":"010",
-      "nombre":"Cable forrado jack 3.5 estereo",
-      "precio":"0",
+      "nombre":"Cable forrado 3.5 estereo",
       "marca":"BIZZ",
       "altura":"0",
       "largo":"1.5m",
@@ -172,8 +162,7 @@
    },
    {
       "id":"011",
-      "nombre":"Cable trenzado forrado jack 3.5 estereo",
-      "precio":"0",
+      "nombre":"Cable trenzado forrado 3.5 estereo",
       "marca":"BIZZ",
       "altura":"0",
       "largo":"1.5m",
@@ -190,7 +179,6 @@
    {
       "id":"012",
       "nombre":"kit extensiones en L",
-      "precio":"0",
       "marca":"BIZZ",
       "altura":"0",
       "largo":"18cm",

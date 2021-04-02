@@ -1,6 +1,6 @@
 const primario= "#414E89", secundario= "#4FAEE1", oscuro= "#212121", secundarioAlpha = "#4fAEE199", primarioAlpha = "#414E89BB";
 
-$("form").on("submit",busqueda);
+$("#search").on("submit",busqueda);
 tema();
 
 function tema(){

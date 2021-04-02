@@ -1,4 +1,11 @@
 document.getElementById("probar").addEventListener("click",pruebas)
+class bolsa {
+    constructor (producto,cantidad,precio){
+    this.producto = producto;
+    this.cantidad = cantidad;
+    this.precio = precio;
+    }
+}
 
 class articulo{
     constructor(id,nombre,images,tipo,subtipo,precio,colores){
@@ -40,11 +47,30 @@ class product {
     }
     img(contenedor){
         let array = this.imagenes;
-        alert (this.imagenes);
         let i=0;
         while (array[i] != ""){
             var hijo = document.createElement("img");
             hijo.src =array[i];
+            contenedor.appendChild(hijo);
+            i++;
+        }
+    }
+    color(contenedor){
+        let array = this.colores;
+        let i=0;
+        while (array[i] != ""){
+            var hijo = document.createElement("p");
+            hijo.innerHTML =array[i];
+            contenedor.appendChild(hijo);
+            i++;
+        }
+    }
+    material(contenedor){
+        let array = this.materiales;
+        let i=0;
+        while (array[i] != ""){
+            var hijo = document.createElement("p");
+            hijo.innerHTML =array[i];
             contenedor.appendChild(hijo);
             i++;
         }
@@ -58,38 +84,82 @@ class product {
                                     
                                 </div>
                                 <div id="detalles">
-                                    
+                                    r
                                 </div>`;
             contenedor=document.getElementById("imagenes");
             this.img(contenedor);
             contenedor=document.getElementById("general");
-            contenedor.innerHTML=`<h2>${this.nombre}</h2>
-                                    <p>$${this.precio}</p>
-                                    <form action="" method="get" enctype="multipart/form-data">
-                                        <input class="boton" type="submit" value="Calcular Cuotas"/>
+            contenedor.innerHTML=`  <div>
+                                    <h2 id="nombre">${this.nombre}</h2>
+                                    <p id="precios">$${this.precio}</p>
+                                    </div>
+                                    <div>
+                                    <form id="cuotas" name="cuotas" action="" method="get" enctype="multipart/form-data">
+                                        <p class="nombre">cuotas</p>
+                                        <span class="material-icons">credit_card</span>
+                                        <div class="contenido">
+                                        <input class="boton" name="calcular" type="submit" value="Calcular Cuotas"/>
+                                        </div>
                                     </form>
-                                    <img src="" href=""> <!--imagen de tarjetas con su link a las promociones bancarias-->
-                                    <img src="" href=""> <!--imagen de camion para envios-->
-                                    <form action="" method="get" enctype="multipart/form-data">
-                                        <p>codigo postal</p>
-                                        <input type="text" placeholder="CP"/>
+                                    
+                                    </div>
+                                    <div>
+                                    <form id="envio" name="envio" action="" method="get" enctype="multipart/form-data">
+                                        <p class="nombre">codigo postal</p>
+                                        <span class="material-icons">local_shipping</span>
+                                        <div class="contenido">
+                                            <select id="desplegable" name="prov" >
+                                                <option value="buenos aires">Buenos Aires</option>
+                                                <option value="caba">Capital Federal</option>
+                                                <option value="catamarca">Catamarca</option>
+                                                <option value="chaco">Chaco</option>
+                                                <option value="chubut">Chubut</option>
+                                                <option value="cordoba">Cordoba</option>
+                                                <option value="corrientes">Corrientes</option>
+                                                <option value="entre rios">Entre Rios</option>
+                                                <option value="formosa">Formosa</option>
+                                                <option value="jujuy">Jujuy</option>
+                                                <option value="pampa">La Pampa</option>
+                                                <option value="rioja">La Rioja</option>
+                                                <option value="mendoza">Mendoza</option>
+                                                <option value="misiones">Misiones</option>
+                                                <option value="neuquen">Neuquen</option>
+                                                <option value="rio negro">Rio Negro</option>
+                                                <option value="salta">Salta</option>
+                                                <option value="san juan">San Juan</option>
+                                                <option value="san luis">San Luis</option>
+                                                <option value="santa cruz">Santa Cruz</option>
+                                                <option value="santa fe">Santa fe</option>
+                                                <option value="santiago">Santiago</option>
+                                                <option value="tierra del fuego">Tierra Del Fuego</option>
+                                                <option value="tucuman">Tucuman</option>
+                                            </select>
+                                        </div>
                                     </form>
-                                    <p>costo de envio: $xxx.xx</p>
-                                    <form action="" method="get" enctype="multipart/form-data">
-                                        <p>cantidad</p>
-                                        <select id="desplegable" name="asunto" style="display: block">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                        </select>
-                                        <input type="submit" value="sumar al carrito"/>
-                                    </form>`;
+                                    </div>
+                                    <div>
+                                    <form id="cantidad" name="cantidad" action="" method="get" enctype="multipart/form-data">
+                                        <p class="nombre">cantidad</p>
+                                        <span class="material-icons">add_shopping_cart</span>
+                                        <div class="contenido">  
+                                            <select id="desplegable" name="asunto" >
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                            </select>
+                                            <input name="agregar" type="submit" value="sumar al carrito"/>
+                                        </div>
+                                    </form>
+                                    </div>`;
             contenedor=document.getElementById("detalles");
-            contenedor.innerHTML=`<h3><hr>detalles</h3>
-                                    <p> tecnologia del producto </p>
-                                    <h4><hr>Especificaciones</h4>
+            contenedor.innerHTML=`  <h3><hr>detalles</h3>
+                                    <span class="material-icons">info</span>
+                                    <p class="contenido"> tecnologia del producto </p>
+                                    <h3><hr>Especificaciones</h3>
+                                    <span class="material-icons">info</span>
+                                    <div class="contenido">
                                     <table>
                                         <tr>
                                             <th>Caracteristicas generales</th>
@@ -107,16 +177,99 @@ class product {
                                             <td> ${this.altura} Cm</td>
                                         </tr>
                                         <tr>
-                                            <td>Color</td>
-                                            <td>RGB</td>
+                                            <td>Colores</td>
+                                            <td id="colores"></td>
                                         </tr>
                                         <tr>
                                             <td>Materiales</td>
-                                            <td></td>
+                                            <td id="materiales"></td>
                                         </tr>
-                                    </table><hr>`;
+                                    </table>
+                                    </div><hr>`;
+            contenedor=document.getElementById("colores");
+            this.color(contenedor);
+            contenedor=document.getElementById("materiales");
+            this.material(contenedor);
         }
     }
+    calcularCuotas(){
+        $("#cuotas").on("submit",()=>{return false;});
+        document.cuotas.calcular.addEventListener("click",desplegar);
+        let hijo = document.getElementById("ventanaCuotas");
+        let cuotas;
+        hijo.innerHTML=`<p>3 cuotas de $${cuotas=((parseFloat(this.precio)+parseFloat(this.precio*0.08))/3).toFixed(2)} -------> Total:$${parseFloat(cuotas)*3}</p><hr>
+                        <p>6 cuotas de $${cuotas=((parseFloat(this.precio)+parseFloat(this.precio*0.13))/6).toFixed(2)} -------> Total:$${parseFloat(cuotas)*6}</p><hr>
+                        <p>9 cuotas de $${cuotas=((parseFloat(this.precio)+parseFloat(this.precio*0.22))/9).toFixed(2)} -------> Total:$${parseFloat(cuotas)*9}</p><hr>
+                        <p>12 cuotas de $${cuotas=((parseFloat(this.precio)+parseFloat(this.precio*0.35))/12).toFixed(2)} -------> Total:$${parseFloat(cuotas)*12}</p><hr>`;
+    }
+    
+}
+
+
+function envio(){
+    $("#envio").on("submit",()=>{return false;});
+    let barato=["buenos aires","caba","santa fe","cordoba","entre rios","pampa","santiago",""];
+    let normal=["catamarca","chubut","rioja","mendoza","neuquen","san juan","san luis","santa cruz","rio negra","tucuman",""];
+    let caro=["chaco","corrientes","formosa","jujuy","misiones","salta","tierra del fuego",""];
+    let envios=[barato,normal,caro,""];
+    let provincia = document.envio.prov;
+    let i=0,c,flag=0,precio=[];
+    while(envios[i]!="" && flag==0){
+        precio=envios[i];
+        c=0;
+        while(precio[c] != ""){
+            if(precio[c]==provincia.value){
+                flag=1;
+            }
+            c++;
+        }
+        if(flag==0){
+            i++;
+        }
+    }
+    if(flag==1){
+        CrearEnvio(i);
+    }
+}
+
+function CrearEnvio(precio){
+    let contenedor=document.envio.getElementsByClassName("contenido")[0];
+    let hijo=document.getElementById("borrar");
+    if(!hijo){}else{
+        contenedor.removeChild(hijo);
+    }
+    switch(precio){
+        case 0:
+            hijo = document.createElement("p");
+            hijo.setAttribute("id","borrar");
+            hijo.innerHTML = `costo de envio $400`;
+            contenedor.appendChild(hijo);
+            break;
+        case 1:
+            hijo = document.createElement("p");
+            hijo.setAttribute("id","borrar");
+            hijo.innerHTML = `costo de envio $600`;
+            contenedor.appendChild(hijo);
+            break;
+        case 2:
+            hijo = document.createElement("p");
+            hijo.setAttribute("id","borrar");
+            hijo.innerHTML = `costo de envio $800`;
+            contenedor.appendChild(hijo);
+            break;
+        default:
+            alert("error");
+            break;
+    }
+}
+
+function desplegar(){
+    $("#fondoCuotas").on("click",()=>{
+        $('#fondoCuotas').hide(100);
+        $('#ventanaCuotas').hide(500);
+    });
+    $("#fondoCuotas").toggle(0);
+    $("#ventanaCuotas").toggle(700);
 }
 
 function prueba(e){ /*la variable e se crea a partir de lo que llama a la funcion. en el html hay 2 etiquetas <p>
@@ -156,16 +309,9 @@ function pruebaswasd(){
 
 function pruebas(){
     let contenedor = document.getElementsByTagName("section")[0];
-    contenedor.innerHTML=`<div class="asideLeft">
-                                <h2>Productos</h2>
-                                <div>
-                                    <ul id="tipos">
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="filtros">
+    contenedor.innerHTML=`<div class="filtros">
                             <h3>Filtros</h3>
-                                <form action="" method="get" enctype="multipart/form-data">
+                                <form name="filtros" id="filtros" action="" method="get" enctype="multipart/form-data">
                                     <select class="desplegable" name="color" style="display: inline; margin-right: 20px;">
                                         <option value="">-------</option>
                                         <option value="blanco">blanco</option>
@@ -183,36 +329,28 @@ function pruebas(){
                                     <select class="desplegable" name="orden" style="display: inline; margin-left: 20px;">
                                         <option value="recomendados">recomendados</option>
                                         <option value="baratos">precio: menor a mayor</option>
-                                        <option value="caros">precio: menor a mayor</option>
+                                        <option value="caros">precio: mayor a menor</option>
                                         <option value="a-z">orden alfabetico</option>
                                     </select>
-                                    <p id="precio">precio desde: <input class="numeros" type="number" placeholder="minimo" style="margin-right: 5px;"/> hasta:<input class="numeros" type="number" placeholder="maximo"/></p>
-                                    <input id="aceptar" type="submit" value="aplicar"/>
+                                    <p id="precio">precio desde: <input name="desde" class="numeros" type="number" placeholder="minimo" style="margin-right: 5px;"/> hasta:<input name="hasta" class="numeros" type="number" placeholder="maximo"/></p>
+                                    <button name="aceptar" id="aceptar" value="aplicar">Aplicar</button>
                                 </form>
                             </div>
                             <div class="listaArticulos"></div>
                             <div class="paginacion"></div>
                             <div id="fondo"></div>
                             <div id="right"></div>`;
-    var url = "../assets/pruebas/articulos.json"
-    var peticion = new XMLHttpRequest()
-    peticion.onreadystatechange= function (){
-        if(this.readyState==4 && this.status ==200){
-            $('#fondo').hide();
-            $('#right').hide();
-            let articulos=JSON.parse(this.response);
-            //let UltimoIdPagina = localStorage.getItem("ultimoIdPagina");
-            let array=listaArticulos(articulos,"001");
-            tipos(articulos);
-            let idArticulos=articulos.map( articulos => articulos.id);
-            let i =idArticulos.indexOf("001");
-            paginacion(articulos,articulos.length,i);
-            $('.listaArticulos').ready(()=>{$('.article').on('click', productoDesplegable);});
-        }
-        tema();
-    };
-    peticion.open("GET", url, true);
-    peticion.send();
+    var hijo = document.createElement("div");
+    hijo.id="fondoCuotas";
+    contenedor.appendChild(hijo);
+    hijo = document.createElement("div");
+    hijo.id="ventanaCuotas";
+    contenedor.appendChild(hijo);
+    $("#fondoCuotas").hide(0);
+    $("#ventanaCuotas").hide(0);
+    $('#filtros').on("submit",()=>{return false;});
+    $('#aceptar').on("click",apliFiltros)
+    apliFiltros();
 }
 function productoDesplegable(){
     obtenerDetalles(this.value);
@@ -227,14 +365,19 @@ function crearDetalles(producto,id){
     var peticion = new XMLHttpRequest();
     peticion.onreadystatechange = function (){
         if(this.readyState==4 && this.status ==200){
-        var articulos=JSON.parse(this.response);
-        var article=buscarProducto(articulos,id);
-        let productito = new product (producto.id,producto.nombre,producto.precio,producto.marca,producto.altura,producto.largo,producto.ancho,producto.peso,producto.materiales,producto.conexiones,producto.consumo,producto.otros,article.colores,article.imagenes);
+        let articulos=JSON.parse(this.response);
+        let article=buscarProducto(articulos,id);
+        let productito = new product (producto.id,producto.nombre,article.precio,producto.marca,producto.altura,producto.largo,producto.ancho,producto.peso,producto.materiales,producto.conexiones,producto.consumo,producto.otros,article.colores,article.imagenes);
         let contenedor = document.getElementById("right");
         productito.Detalles(contenedor,id);
+        productito.calcularCuotas();
+        $("#envio").on("submit",()=>{return false;});
+        envio();
+        document.envio.prov.addEventListener("mouseleave",envio);
+        carrito();
     }
     };
-    peticion.open("GET", url, true);
+    peticion.open("GET", url, false);
     peticion.send();
 }
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -252,9 +395,8 @@ function obtenerDetalles(id){
         }
         tema();
     };
-    peticion.open("GET", url, true);
+    peticion.open("GET", url, false);
     peticion.send();
-    
 }
 function buscarProducto (productos,id){
     var i=0;
@@ -267,17 +409,20 @@ function buscarProducto (productos,id){
     return productos[i];
 }
 function mostrarDetalles(){
+    $('#fondo').on('click',()=>{
+        $('#fondo').hide(100);
+        $('#right').hide(500);
+        borrarDetalles();
+    });
     $('#fondo').toggle(0);
     $('#right').toggle(700);
-    $('#fondo').on('click',()=>{
-        $('#fondo').hide(0);
-        $('#right').hide(500,borrarDetalles());
-        
-    });
 }
 function borrarDetalles(){
     let contenedor = document.getElementById("right");
     contenedor.innerHTML= ``;
+    contenedor = document.getElementById("ventanaCuotas");
+    contenedor.innerHTML= ``;
+    borrarCarrito();
 }
 /*buscar solucion para cuando sean mas de 12 articulos en el JSON
     localStorage.setItem("UltimoIdPagina",array[i].id);*/
@@ -302,52 +447,11 @@ function listaArticulos(articulos,desde){ //hay que pasarle el ultimo id de pagi
     }
     return array;
 }
-/*function listaArticulos(articulos){ 
-    let contenedor = document.getElementsByClassName("listaArticulos")[0];
-    let array=[];
-    var i=0;
-    var idArticulos=articulos.map( articulos => articulos.id);
-    for(i in articulos){
-        if(articulos[i] == undefined){
-            break;
-        }
-        array.push(new articulo(articulos[i].id,articulos[i].nombre,articulos[i].imagenes,articulos[i].tipo,articulos[i].subtipo,articulos[i].precio,articulos[i].colores));
-        array[i].article(contenedor);
-        if((i%11)==0&&i!=0){
-            break;
-        }
-    }
-    return array;
-}*/
-function tipos(articulos){
-    if(articulos[0]!= undefined){
-    var tipos=[articulos[0].tipo];
-    var flag;
-    for (var i=1;i<articulos.length;i++){
-        flag=[];
-        for(let c=0;c<tipos.length;c++){
-            if(articulos[i].tipo!=tipos[c]){
-                flag.push(1);
-            }else{
-                flag.push(0);
-            }
-        }
-        if(!flag.includes(0)){
-            tipos.push(articulos[i].tipo);
-        }
-    }
-    let contenedor=document.getElementById("tipos");
-    for(i=0;i<tipos.length;i++){
-        var hijo = document.createElement("li");
-        hijo.innerHTML =`<a href="">${tipos[i]}</a>`;
-        contenedor.appendChild(hijo);
-    }
-    }
-}
 
 function paginacion (articulos,cantidad,desde){
     let contenedor = document.getElementsByClassName("paginacion")[0];
     contenedor.innerHTML=`<p>pagina:</p>`;
+    cantidad--;//le borro uno porque en este valor se esta contando articulo final que no debe ser contado
     let c=desde;
     for(i=1;i<=Math.round((cantidad/12)+0.49);i++){
         c=c+12;
@@ -361,3 +465,163 @@ function paginacion (articulos,cantidad,desde){
         contenedor.innerHTML= contenedor.innerHTML+ `<button class="itemPagina" value="${id}">${i}</button>`
     }
 }
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//carrito
+
+function carrito(){
+    document.cantidad.agregar.addEventListener("click",agregarCarrito);
+    $("#cantidad").on("submit",()=>{return false;});
+}
+
+function borrarCarrito(){
+
+}
+
+function agregarCarrito(){
+    let producto = document.getElementById("nombre").innerHTML;
+    let precio = document.getElementById("precios").innerHTML;
+    precio = precio.slice(1);
+    precio = parseFloat(precio);
+    let cantidad = parseInt(document.cantidad.asunto.value);
+    let carro = localStorage.getItem("carro");
+    let espacio = new bolsa (producto,cantidad,precio);
+    carro = JSON.parse(carro);
+    if(carro==null){
+        inicializar();
+        carro = localStorage.getItem("carro");
+        carro = JSON.parse(carro);
+    }
+    if(carro[carro.length-1].producto==0 && carro.length>2){
+        carro[carro.length-1].producto=espacio.producto;
+        carro[carro.length-1].cantidad=espacio.cantidad;
+        carro[carro.length-1].precio=espacio.precio;
+    }else{
+    carro.push(espacio);
+    }
+    carro.push(new bolsa (0,0,0));
+    carro = JSON.stringify(carro);
+    localStorage.setItem("carro",carro);
+}
+
+function inicializar(){
+    var vacio = [];
+    vacio.push(new bolsa (0,0,0));
+    vacio = JSON.stringify(vacio);
+    var carrito = [vacio];
+    localStorage.setItem("carro",carrito);
+}
+
+function vaciar(){
+    inicializar();
+}
+
+//--------------------------------------------------------------------------------------------------------------------------------
+//filtros
+function apliFiltros(){
+    var colores=document.filtros.color.value;
+    var order=document.filtros.orden.value;
+    var desde=document.filtros.desde.value;
+    var hasta=document.filtros.hasta.value;
+    var url = "../assets/pruebas/articulos.json"
+    var peticion = new XMLHttpRequest()
+    peticion.onreadystatechange= function (){
+        if(this.readyState==4 && this.status ==200){
+            $('#fondo').hide();
+            $('#right').hide();
+            let articulos=JSON.parse(this.response);
+            articulos=color(colores,articulos);
+            articulos=orden(order,articulos);
+            articulos=precio(desde,hasta,articulos);
+            document.getElementsByClassName("listaArticulos")[0].innerHTML=``;
+            articulosConFiltro(articulos);
+            paginacion(articulos,articulos.length,0);
+            $('.listaArticulos').ready(()=>{$('.article').on('click', productoDesplegable);});
+            tema();
+        }
+    };
+    peticion.open("GET", url, true);
+    peticion.send();
+}
+function articulosConFiltro (articulos){
+    let contenedor = document.getElementsByClassName("listaArticulos")[0];
+    let array=[];
+    let articulito;
+    var i=0;
+    for(i;i>-1;i++){
+        articulito = new articulo(articulos[i].id,articulos[i].nombre,articulos[i].imagenes,articulos[i].tipo,articulos[i].subtipo,articulos[i].precio,articulos[i].colores)
+        array.push(articulito);
+        articulito.article(contenedor);
+        if(articulos[i+1]==undefined){
+            break;
+        }
+        if((i%11)==0&&i!=0){
+            break;
+        }
+    }
+}
+function color(color,articulos){
+    let articulitos=[],i=0,a=0,c=0;
+    while(articulos[i].id!="000" && i<articulos.length){
+        for(c=0;c<articulos[i].colores.length;c++){
+            if(articulos[i].colores[c]==color){
+                articulitos[a]=articulos[i];
+                a++;
+            }
+        }
+        i++;
+    }
+    return articulitos;
+}
+function orden(valor,articulos){
+    switch(valor){
+        case "recomendados":
+            articulos.sort(((a,b) => a.id - b.id));
+            break;
+        case "baratos":
+            articulos.sort(((a, b) => a.precio - b.precio));
+            break;
+        case "caros":
+            articulos.sort(((a, b) => b.precio - a.precio));
+            break;
+        case "a-z":
+            articulos.sort((a, b) => {
+                if(a.nombre > b.nombre) return 1;
+                if(a.nombre < b.nombre) return -1;
+                return 0;
+            });
+            break;
+        default:
+            break;
+    }
+    return articulos;
+}
+function precio(desde,hasta,articulos){
+    let articulitos=[],i=0,a=0,c=0;
+    if(desde>hasta && hasta!=""){
+        alert("error: el precio minimo debe ser menor que el precio maximo");
+        articulitos = articulos;
+    }else{
+        while(i<articulos.length){
+            if(parseFloat(articulos[i].precio)>desde){
+                articulitos[a]=articulos[i];
+                a++;
+            }
+            i++;
+        }
+        if (hasta!=""){
+            articulos= articulitos;
+            articulitos= [];
+            i=0;
+            while(i<articulos.length){
+                if(parseFloat(articulos[i].precio)<hasta){
+                    articulitos[c]=articulos[i];
+                    c++;
+                }
+                i++;
+            }
+        }
+    }
+    return articulitos;
+}
+
+

@@ -19,6 +19,7 @@ intentar hacer que el orden de los articulos se cambie sin recargar la pagina, e
 hacer arrays de objetos para crear articulos?
 deberia crear los articulos desde js a partir de un archivo .json?
 podria emplear algo basico de sql para los filtros?
+hacer una especie de mini spa super basica para el filtro por tipo de producto.
 --------------------------------------------------------------------------------------------------
 calculadora de watts
 tengo que hacer una mini base de datos en texto plano con formato json para sacar la info a la hora de hacer los calculos de watts que consumiria una pc

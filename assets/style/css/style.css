@@ -43,6 +43,28 @@ section {
 footer {
   font-size: 1.4rem; }
 
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: 'liga'; }
+
 nav {
   background-color: #414E89;
   height: fit-content;
@@ -133,7 +155,8 @@ footer {
   color: white;
   padding: 5px;
   border-top-left-radius: 10px;
-  border-top-right-radius: 10px; }
+  border-top-right-radius: 10px;
+  z-index: 4; }
 
 .filtros {
   color: #414E89; }
@@ -320,7 +343,8 @@ footer {
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
   max-width: 100%;
-  margin: 10px; }
+  margin: 10px;
+  justify-items: center; }
   .listaArticulos button {
     background-color: inherit;
     color: inherit;
@@ -348,12 +372,12 @@ form div {
 @media screen and (min-width: 900px) {
   .listaArticulos {
     grid-template-columns: repeat(3, 1fr);
-    max-width: 80%; } }
+    max-width: 100%; } }
 
 @media screen and (min-width: 1200px) {
   .listaArticulos {
     grid-template-columns: repeat(4, 1fr);
-    max-width: 70%;
+    max-width: 100%;
     margin-left: 25px;
     margin-right: 25px; } }
 
@@ -372,49 +396,139 @@ form div {
       margin-top: 10px; }
 
 #fondo {
-  position: absolute;
+  position: fixed;
   left: 0%;
   top: 0%;
-  height: 110%;
+  height: 100%;
   width: 100%;
   background-color: #212121AA;
-  z-index: 1; }
+  z-index: 0; }
 
 #right {
   position: absolute;
   left: 30%;
   top: 18%;
-  height: 100%;
+  height: auto;
   width: 67.5%;
   background-color: #212121;
   border: 2px solid #414E89;
   border-radius: 10px;
   box-shadow: 0 0 15px #414E89;
-  padding: 1%;
-  z-index: 2; }
+  padding: 1% 1% 2% 1%;
+  z-index: 1; }
   #right .producto {
     font-family: "Yanone Kaffeesatz", sans-serif; }
   #right #imagenes {
     margin: 3%;
-    position: relative;
     height: auto;
     width: 90%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     grid-auto-rows: 150px;
     grid-gap: 5px;
     grid-auto-flow: row dense; }
     #right #imagenes img:first-child {
-      grid-area: span 2 / span 2;
-      max-width: 400px; }
+      grid-area: span 3 / span 3; }
     #right #imagenes img {
-      grid-area: span 1 / span 4;
-      -o-object-fit: contain;
-      object-fit: contain;
-      max-width: 200px;
+      grid-area: span 1 / span 1;
       width: 100%;
       height: 100%;
-      overflow: hidden; }
+      overflow: hidden;
+      object-fit: contain; }
+
+#general {
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  grid-auto-rows: 40%;
+  grid-gap: 5px;
+  grid-auto-flow: row dense;
+  justify-items: center;
+  align-items: center; }
+  #general div:first-child {
+    width: auto;
+    height: auto;
+    grid-area: span 1 / span 3;
+    padding-bottom: 5px;
+    padding: 0;
+    border: 0px solid #414E89;
+    border-radius: 0px;
+    box-shadow: 0 0 0px #414E89; }
+  #general div {
+    width: 80%;
+    height: 110%;
+    padding: 7px;
+    border: 2px solid #414E89;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #414E89; }
+    #general div form {
+      display: grid;
+      grid-template-columns: 80% 20%;
+      height: 100%;
+      width: 100%;
+      grid-auto-rows: 48%;
+      grid-gap: 5px;
+      align-items: center;
+      justify-items: center;
+      grid-template-areas: "nombre icono" "contenido icono"; }
+      #general div form .nombre {
+        grid-area: nombre; }
+      #general div form .contenido {
+        grid-area: contenido; }
+      #general div form .material-icons {
+        grid-area: icono; }
+      #general div form select {
+        display: inline; }
+      #general div form input {
+        display: inline;
+        text-align: center; }
+      #general div form input[type="text"] {
+        max-width: 100%; }
+      #general div form p {
+        display: block; }
+    #general div form[name="cuotas"] input {
+      display: block; }
+    #general div form[name="cuotas"] span {
+      float: right;
+      clear: both;
+      padding-bottom: 10%; }
+    #general div form[name="envio"] span {
+      float: right;
+      clear: both;
+      padding-bottom: 10%; }
+    #general div form[name="cantidad"] span {
+      float: right;
+      clear: both;
+      padding-bottom: 10%; }
+    #general div div {
+      padding: 0;
+      border: 0px solid #414E89;
+      border-radius: 0px;
+      box-shadow: 0 0 0px #414E89; }
+
+#detalles h3 {
+  display: inline; }
+
+#detalles span {
+  float: right; }
+
+#fondoCuotas {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  height: 130%;
+  width: 100%;
+  background-color: #212121AA;
+  z-index: 2; }
+
+#ventanaCuotas {
+  background-color: white;
+  color: black;
+  z-index: 3;
+  position: fixed;
+  top: 30%;
+  left: 30%;
+  height: 40%;
+  width: 40%; }
 
 body {
   display: grid;
