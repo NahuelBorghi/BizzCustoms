@@ -26,21 +26,252 @@
             <input type="search" placeholder="Buscar..." name="buscar" id="buscar">
         </form>
     </nav>
-    <section>
-        <h2>ingreso de placas madre</h2>
-        <!-- pruebas para una funcion de compatibilidad entre partes de pc (sin ventas) -->
-		<form name="formMother" action="" method="get">
-            <input type="text" id="socalo" placeholder="socalo de placa madre">
-            <input type="text" id="nombre" placeholder="nombre">
-            <br><p>Tiene video on-board</p><br>
-            <input type="radio" name="video" id="video" value="si">si<br>
-            <input type="radio" name="video" id="video" value="no">no<br>
-            <p>cuantas ranuras para ram tiene la motherboard</p><br>
-            <input type="radio" name="ram" id="ram" value="2">2<br>
-            <input type="radio" name="ram" id="ram" value="4">4<br>
-            <input type="radio" name="ram" id="ram" value="8">8<br>
-            <button id="compatible" type="button" onclick="nuevo()">compatibilidad</button>
+    <section id="compatibilidad">
+        <!--pruebas para una funcion de compatibilidad entre partes de pc (sin ventas)
+            hacer que el formulario ocupe 2 tercios o la mitad de la pantalla para mostra
+            las sugerencias y errores del otro lado en tiempo real-->
+		<form id="compat" name="compatibilidad" action="" method="get">
+            <div>
+                <label for="intel" value="intel"><img src="" alt="intel"></label>
+                <label for="amd" value="amd"><img src="" alt="amd"></label><br>
+                <!-- hacer que los botones marquen un radio invisible-->
+                <input type="radio" name="cpu" id="intel" class="cpu">
+                <input type="radio" name="cpu" id="amd" class="cpu"><br>
+            </div>
+
+            <div><!--placa madre-->
+                    <input type="text" name="chipset" placeholder="chipset"><br>
+                    <input type="text" name="socket" id="socalo" placeholder="socalo de placa madre"><br>
+                    <input type="text" name="nombre-mother" id="nombre" placeholder="nombre"><br>
+                <br><p>Tiene salidas de video?</p><br>
+                    <input type="radio" name="tam-mother" value="mini-itx">Mini-ITX
+                    <input type="radio" name="tam-mother" value="micro-atx">Micro-ATX
+                    <input type="radio" name="tam-mother" value="atx">ATX
+                    <input type="radio" name="tam-mother" value="eatx">EATX<br>
+                <br><p>Tiene salidas de video?</p><br>
+                    <input type="radio" name="video" value="si">si
+                    <input type="radio" name="video" value="no">no<br>
+                <br><p>Cuantas ranuras para ram tiene la motherboard?</p><br>
+                    <input type="radio" name="ram" id="ram" value="2">2
+                    <input type="radio" name="ram" id="ram" value="4">4
+                    <input type="radio" name="ram" id="ram" value="8">8<br>
+                <p>Cuantos puertos SATA tiene?</p><br>
+                    <input type="number" name="sata" placeholder="Puertos SATA"><br>
+                <p>Cuantos puertos PCI-Express tiene?</p><br>
+                    <input type="number" name="pcie1" placeholder="Puertos PCI-Express"><br>
+                    <input type="radio" name="lineas1">x1
+                    <input type="radio" name="lineas1">x4
+                    <input type="radio" name="lineas1">x8
+                    <input type="radio" name="lineas1">x16 <br>
+
+                    <input type="number" name="pcie2" placeholder="Puertos PCI-Express"><br>
+                    <input type="radio" name="lineas2">x1
+                    <input type="radio" name="lineas2">x4
+                    <input type="radio" name="lineas2">x8
+                    <input type="radio" name="lineas2">x16 <br>
+
+                    <input type="number" name="pcie3" placeholder="Puertos PCI-Express"><br>
+                    <input type="radio" name="lineas3">x1
+                    <input type="radio" name="lineas3">x4
+                    <input type="radio" name="lineas3">x8
+                    <input type="radio" name="lineas3">x16 <br>
+
+                    <input type="number" name="pcie4" placeholder="Puertos PCI-Express"><br>
+                    <input type="radio" name="lineas4">x1
+                    <input type="radio" name="lineas4">x4
+                    <input type="radio" name="lineas4">x8
+                    <input type="radio" name="lineas4">x16<br>
+                <p>Cuantos puertos PCI tiene?</p><br>
+                    <input type="number" name="pci" placeholder="Puertos PCI"><br>
+                <br><p>Tiene RGB</p><br>
+                    <input type="radio" name="rgb" id="rgb" value="si">si
+                    <input type="radio" name="rgb" id="rgb" value="no">no<br>
+            </div>
+
+            <div>
+            <!--cpu / invisible hasta que se termine la primer seccion que corresponde al mother-->
+                    <input type="text" name="nombre-cpu" placeholder="nombre del CPU"><br>
+                    <input type="text" name="generacion-cpu" placeholder="generacion del CPU"><br>
+                    <!--sacar generacion y gama a partir del nombre y marca en js-->
+                <br><p>Tiene gpu integrada</p><br>
+                    <input type="radio" name="apu" value="si">si
+                    <input type="radio" name="apu" value="no">no<br>
+                    <!--a partir de chipset y generacion conseguir el tipo de ram que usa-->
+                    <input type="text" name="ram" placeholder="Tipo de memoria ram">
+            </div>
+
+            <div>
+                <br><input type="number" name="modulos-ram" placeholder="cantidad de modulos">
+            </div>
+
+            <div><!--gpu / tambien invisible hasta que este listo lo anterior-->
+                <br><p>Tiene placa de video dedicada</p><br>
+                    <input type="radio" name="gpu" value="si">si
+                    <input type="radio" name="gpu" value="no">no<br>
+                    <input type="text" name="nombre-gpu" placeholder="nombre de la placa de video"><br>
+                <br><p>Cantidad de ventiladores</p><br> <!--para calcular largo de gpu aprox-->
+                    <input type="radio" name="fans" value="170">0
+                    <input type="radio" name="fans" value="220">1
+                    <input type="radio" name="fans" value="270">2
+                    <input type="radio" name="fans" value="315">3<br>
+            </div>
+
+            <div>
+                <br><p>Cantidad de discos</p><br> <!--para calcular SATAs disponibles/invisible-->
+                    <input type="number" name="disco1" placeholder="cantidad de discos"><br>
+                    <input type="radio" name="tipo-disco1" value="ssd">ssd
+                    <input type="radio" name="tipo-disco1" value="hdd">hdd
+                    <input type="radio" name="tipo-disco1" value="m.2">m.2<br>
+
+                    <input type="number" name="disco2" placeholder="cantidad de discos"><br>
+                    <input type="radio" name="tipo-disco2" value="ssd">ssd
+                    <input type="radio" name="tipo-disco2" value="hdd">hdd
+                    <input type="radio" name="tipo-disco2" value="m.2">m.2<br>
+
+                    <input type="number" name="disco3" placeholder="cantidad de discos"><br>
+                    <input type="radio" name="tipo-disco3" value="ssd">ssd
+                    <input type="radio" name="tipo-disco3" value="hdd">hdd
+                    <input type="radio" name="tipo-disco3" value="m.2">m.2<br>
+            </div>
+
+            <div><!--refrigeracion liquida/invisible-->
+                <p>Kit AIO de refrigeracion liquida</p><br>
+                    <select name="kit1">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                    </select>
+                    <select name="tam-kit1">
+                        <option value="120">120mm</option>
+                        <option value="240">240mm</option>
+                        <option value="360">360mm</option>
+                    </select><br>
+
+                    <select name="kit2">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                    </select>
+                    <select name="tam-kit2">
+                        <option value="120">120mm</option>
+                        <option value="240">240mm</option>
+                        <option value="360">360mm</option>
+                    </select><br>
+
+                <br><p>Bomba de refrigeracion liquida</p><br>
+                    <!--se deshabilita si hay 2 aio-->
+                    <select name="bomba1">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                    </select>
+                    <select name="tipo-bomba1">
+                        <option value="deposito">con deposito</option>
+                        <option value="normal">normal</option>
+                        <option value="presion">alta presion</option>
+                    </select><br>
+            </div>
+
+            <div><!--gabinete/invisible hasta calcular anterior-->
+                <br><p>El gabinete tiene luces?</p><br>
+                    <input type="radio" name="luces" value="si">si
+                    <input type="radio" name="luces" value="no">no<br>
+                <br><p>Tamaño de mother permitidas por el gabinete</p><br>
+                    <input type="checkbox" id="mini-itx" name="mini-itx" value="mini-itx">
+                    <label for="mini-itx"> Mini-ITX </label>
+                    <input type="checkbox" id="micro-atx" name="micro-atx" value="micro-atx">
+                    <label for="micro-atx"> Micro-ATX </label>
+                    <input type="checkbox" id="atx" name="atx" value="atx">
+                    <label for="atx"> ATX </label>
+                    <input type="checkbox" id="eatx" name="eatx" value="eatx">
+                    <label for="eatx"> EATX </label><br>
+                <br><p>Largo maximo de gpu permitidas por el gabinete</p><br>
+                    <input type="number" name="largo" placeholder="largo en milimetros"><br>
+                <br><p>Cantidad de ventiladores</p><br>
+                    <select name="num-fans1">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="1">7</option>
+                        <option value="2">8</option>
+                    </select>
+                    <select name="fans1">
+                        <option value="80">80mm</option>
+                        <option value="92">92mm</option>
+                        <option value="120">120mm</option>
+                        <option value="140">140mm</option>
+                        <option value="200">200mm</option>
+                        <option value="250">250mm</option>
+                    </select><br>
+
+                    <select name="num-fans2">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="1">7</option>
+                        <option value="2">8</option>
+                    </select>
+                    <select name="fans2">
+                        <option value="80">80mm</option>
+                        <option value="92">92mm</option>
+                        <option value="120">120mm</option>
+                        <option value="140">140mm</option>
+                        <option value="200">200mm</option>
+                        <option value="250">250mm</option>
+                    </select><br>
+
+                    <select name="num-fans3">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="1">7</option>
+                        <option value="2">8</option>
+                    </select>
+                    <select name="fans3">
+                        <option value="80">80mm</option>
+                        <option value="92">92mm</option>
+                        <option value="120">120mm</option>
+                        <option value="140">140mm</option>
+                        <option value="200">200mm</option>
+                        <option value="250">250mm</option>
+                    </select><br>
+
+                    <select name="num-fans4">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="1">7</option>
+                        <option value="2">8</option>
+                    </select>
+                    <select name="fans4">
+                        <option value="80">80mm</option>
+                        <option value="92">92mm</option>
+                        <option value="120">120mm</option>
+                        <option value="140">140mm</option>
+                        <option value="200">200mm</option>
+                        <option value="250">250mm</option>
+                    </select><br>
+            </div><br>
         </form>
+        <div id="conclusion">
+            
+        </div>
     </section>
     <footer>
         <div><a href="./sobre-nosotros.html">Sobre nosotros</a></div>

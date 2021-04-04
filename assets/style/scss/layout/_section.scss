@@ -372,3 +372,46 @@ form{
     height: 40%;
     width: 40%;
 }
+#compatibilidad {
+    display: grid;
+    grid-template-columns: 0.50fr 0.50fr 1.25fr;
+    grid-template-areas: "comp comp conclusion";
+    #compat{
+        margin-left: 5%;
+        grid-area: comp;
+        display: grid;
+        grid-template-columns: 47% 47%;
+        grid-auto-rows: auto;
+        grid-auto-flow: row dense;
+        column-gap: 5%;
+        row-gap: 1%;
+        justify-self: start;
+        align-self: stretch;
+        text-align: left;
+        width: 100%;
+        div{
+            padding: 12%;
+            width: 80%;
+            height: auto;
+            border: 1px solid $primario;
+            input{
+                
+            }
+        }
+        div:nth-child(1){
+            grid-area: span 1 / span 2;
+            width: 78%;
+        }
+        div:nth-child(2){
+            grid-area: span 4 / span 1;
+        }
+        div:nth-child(7){
+            grid-area: span 1 / span 2;
+            padding: 5%;
+            padding-right: 17%;
+        }
+    }
+    #conclusion{
+        grid-area: conclusion;
+    }
+}
