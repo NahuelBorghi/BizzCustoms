@@ -53,8 +53,7 @@
                     <input type="radio" name="video" value="no">no<br>
                 <br><p>Cuantas ranuras para ram tiene la motherboard?</p><br>
                     <input type="radio" name="ram" value="2">2
-                    <input type="radio" name="ram" value="4">4
-                    <input type="radio" name="ram" value="8">8<br>
+                    <input type="radio" name="ram" value="4">4<br>
                 <p>Cuantos puertos SATA tiene?</p><br>
                     <input type="number" name="sata" placeholder="Puertos SATA" min="4" max="8"><br>
                 <p>Cuantos puertos M.2 tiene?</p><br>
@@ -102,7 +101,7 @@
             </div>
 
             <div id="ram">
-                <input type="number" name="modulosRam" placeholder="cantidad de modulos"><br>
+                <input type="number" name="modulosRam" placeholder="cantidad de modulos" min="1" max="4"><br>
                 <input type="radio" name="ram" value="2">2gb
                 <input type="radio" name="ram" value="4">4gb
                 <input type="radio" name="ram" value="8">8gb
@@ -113,7 +112,7 @@
                 <br><p>Tiene placa de video dedicada</p><br>
                     <input type="radio" name="gpu" value="si">si
                     <input type="radio" name="gpu" value="no">no<br>
-                    <input type="text" name="nombre-gpu" placeholder="nombre de la placa de video"><br>
+                    <input type="text" name="nombreGpu" placeholder="nombre de la placa de video"><br>
                 <br><p>Cantidad de ventiladores</p><br> <!--para calcular largo de gpu aprox-->
                     <input type="radio" name="fans" value="170">0
                     <input type="radio" name="fans" value="220">1

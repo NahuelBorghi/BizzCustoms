@@ -27,18 +27,38 @@ class pcie{
         this.lineas=lineas;
     }
 }
+class micro{
+    constructor(nombre,gen,apu){
+        this.nombre=nombre;
+        this.gen=gen;
+        this.apu=apu;
+    }
+}
+class ram{
+    constructor(modulos,tam){
+        this.modulos=modulos;
+        this.tam=tam;
+    }
+}
+class placaVideo{
+    constructor(flag,nombre,largoAprox){
+        this.flag=flag;
+        this.nombre=nombre;
+        this.largoAprox=largoAprox;
+    }
+}
 //poner efecto de profundidad en css a los input y/o los divs
 nuevo();
 
 
 function nuevo(){
-$("#mother").hide(300);
-$("#cpu").hide(300);
-$("#ram").hide(300);
-$("#gpu").hide(300);
-$("#discos").hide(300);
-$("#refri").hide(300);
-$("#gabinete").hide(300);
+$("#mother").hide(100);
+$("#cpu").hide(100);
+$("#ram").hide(100);
+$("#gpu").hide(100);
+$("#discos").hide(100);
+$("#refri").hide(100);
+$("#gabinete").hide(100);
 document.compatibilidades.addEventListener("input",marca);
 document.compatibilidades.addEventListener("sumit",()=>{return false;})
 }
@@ -53,7 +73,9 @@ function marca(){
                 $("#ram").show(300);
                 $("#gpu").show(300);
                 $("#discos").show(300);
-                procesador(document.compatibilidades.cpu.value.toLowerCase());
+                cpu=procesador(document.compatibilidades.cpu.value.toLowerCase());
+                rams=new ram(document.compatibilidades.modulosRam.value,document.compatibilidades.ram.value);
+                gpu=grafica();
             }else{
                 $("#cpu").hide(300);
                 $("#ram").hide(300);
@@ -69,7 +91,9 @@ function marca(){
                 $("#ram").show(300);
                 $("#gpu").show(300);
                 $("#discos").show(300);
-                procesador(document.compatibilidades.cpu.value.toLowerCase());
+                cpu=procesador(document.compatibilidades.cpu.value.toLowerCase());
+                rams=new ram(document.compatibilidades.modulosRam.value,document.compatibilidades.ram.value);
+                gpu=grafica();
             }else{
                 $("#cpu").hide(300);
                 $("#ram").hide(300);
@@ -267,15 +291,17 @@ function motherAMD(){
 //-----------------------------------------------------------------------
 function procesador(cpu){
     let nombre = document.compatibilidades.nombreCpu.value.toLowerCase();
-    let gen;
+    let gen="";
     if(cpu=="intel"){
         gen=cpuIntel(nombre);
-        //preparar para caso en que pongan marca del procesador
     }else{
         gen=cpuAMD(nombre);
     }
-    alert(gen);
-    let apu;
+    let apu = document.compatibilidades.apu.value;
+    if(gen!=""&&nombre!=""&&apu!=""){
+        let cpu = new micro(nombre,gen,apu);
+        return cpu;
+    }
 }
 //-----------------------------------------------------------------------
 function cpuIntel(nombre){
@@ -540,3 +566,16 @@ function cpuAMD(nombre){
     }
 }
 //-----------------------------------------------------------------------
+function grafica(){
+    let flag=document.compatibilidades.gpu.value;
+    let largoAprox=document.compatibilidades.fans.value;
+    let nombre=document.compatibilidades.nombreGpu.value.toLowerCase();
+    if(nombre.slice(0,3)!="amd"&&nombre.slice(0,6)!="radeon"&&nombre.slice(0,6)!="nvidia"&&nombre.slice(0,7)!="geforce"&&nombre.slice(0,8)!="ge force"&&nombre.slice(0,2)!="rx"&&nombre.slice(0,2)!="hd"&&nombre.slice(0,3)!="gtx"&&nombre.slice(0,3)!="rtx"){
+        nombre="";
+    }
+    if(flag!=""&&nombre!=""&&largoAprox!=""){
+        let gpu = new placaVideo(flag,nombre,largoAprox);
+        alert(gpu);
+        return gpu;
+    }
+}
