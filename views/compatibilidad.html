@@ -52,8 +52,8 @@
                     <input type="radio" name="video" value="si">si
                     <input type="radio" name="video" value="no">no<br>
                 <br><p>Cuantas ranuras para ram tiene la motherboard?</p><br>
-                    <input type="radio" name="ram" value="2">2
-                    <input type="radio" name="ram" value="4">4<br>
+                    <input type="radio" name="rams" value="2">2
+                    <input type="radio" name="rams" value="4">4<br>
                 <p>Cuantos puertos SATA tiene?</p><br>
                     <input type="number" name="sata" placeholder="Puertos SATA" min="4" max="8"><br>
                 <p>Cuantos puertos M.2 tiene?</p><br>
@@ -101,6 +101,11 @@
             </div>
 
             <div id="ram">
+                <br><p>tipo de ram</p><br>
+                <select name="tipoRam">
+                    <option value="ddr4">DDR4</option>
+                    <option value="ddr3">DDR3</option>
+                </select><br>
                 <input type="number" name="modulosRam" placeholder="cantidad de modulos" min="1" max="4"><br>
                 <input type="radio" name="ram" value="2">2gb
                 <input type="radio" name="ram" value="4">4gb
@@ -123,19 +128,28 @@
             <div id="discos">
                 <br><p>Cantidad de discos</p><br> <!--para calcular SATAs disponibles/invisible-->
                     <input type="number" name="disco1" placeholder="cantidad de discos"><br>
-                    <input type="radio" name="tipo-disco1" value="ssd">ssd
-                    <input type="radio" name="tipo-disco1" value="hdd">hdd
-                    <input type="radio" name="tipo-disco1" value="m.2">m.2<br>
+                    <input type="radio" name="tipoDisco1" value="ssd">ssd
+                    <input type="radio" name="tipoDisco1" value="hdd">hdd
+                    <input type="radio" name="tipoDisco1" value="m.2">m.2
+                    <input type="radio" name="tipoDisco1" value="pcie">pcie<br>
 
                     <input type="number" name="disco2" placeholder="cantidad de discos"><br>
-                    <input type="radio" name="tipo-disco2" value="ssd">ssd
-                    <input type="radio" name="tipo-disco2" value="hdd">hdd
-                    <input type="radio" name="tipo-disco2" value="m.2">m.2<br>
+                    <input type="radio" name="tipoDisco2" value="ssd">ssd
+                    <input type="radio" name="tipoDisco2" value="hdd">hdd
+                    <input type="radio" name="tipoDisco2" value="m.2">m.2
+                    <input type="radio" name="tipoDisco2" value="pcie">pcie<br>
 
                     <input type="number" name="disco3" placeholder="cantidad de discos"><br>
-                    <input type="radio" name="tipo-disco3" value="ssd">ssd
-                    <input type="radio" name="tipo-disco3" value="hdd">hdd
-                    <input type="radio" name="tipo-disco3" value="m.2">m.2<br>
+                    <input type="radio" name="tipoDisco3" value="ssd">ssd
+                    <input type="radio" name="tipoDisco3" value="hdd">hdd
+                    <input type="radio" name="tipoDisco3" value="m.2">m.2
+                    <input type="radio" name="tipoDisco3" value="pcie">pcie<br>
+
+                    <input type="number" name="disco4" placeholder="cantidad de discos"><br>
+                    <input type="radio" name="tipoDisco4" value="ssd">ssd
+                    <input type="radio" name="tipoDisco4" value="hdd">hdd
+                    <input type="radio" name="tipoDisco4" value="m.2">m.2
+                    <input type="radio" name="tipoDisco4" value="pcie">pcie<br>
             </div>
 
             <div id="refri"><!--refrigeracion liquida/invisible-->
@@ -145,7 +159,7 @@
                         <option value="1">1</option>
                         <option value="2">2</option>
                     </select>
-                    <select name="tam-kit1">
+                    <select name="tamKit1">
                         <option value="120">120mm</option>
                         <option value="240">240mm</option>
                         <option value="360">360mm</option>
@@ -156,7 +170,7 @@
                         <option value="1">1</option>
                         <option value="2">2</option>
                     </select>
-                    <select name="tam-kit2">
+                    <select name="tamKit2">
                         <option value="120">120mm</option>
                         <option value="240">240mm</option>
                         <option value="360">360mm</option>
@@ -169,7 +183,17 @@
                         <option value="1">1</option>
                         <option value="2">2</option>
                     </select>
-                    <select name="tipo-bomba1">
+                    <select name="tipoBomba1">
+                        <option value="deposito">con deposito</option>
+                        <option value="normal">normal</option>
+                        <option value="presion">alta presion</option>
+                    </select><br>
+                    <select name="bomba2">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                    </select>
+                    <select name="tipoBomba2">
                         <option value="deposito">con deposito</option>
                         <option value="normal">normal</option>
                         <option value="presion">alta presion</option>
@@ -181,9 +205,9 @@
                     <input type="radio" name="luces" value="si">si
                     <input type="radio" name="luces" value="no">no<br>
                 <br><p>Tamaño de mother permitidas por el gabinete</p><br>
-                    <input type="checkbox" id="mini-itx" name="mini-itx" value="mini-itx">
+                    <input type="checkbox" id="mini-itx" name="miniItx" value="mini-itx">
                     <label for="mini-itx"> Mini-ITX </label>
-                    <input type="checkbox" id="micro-atx" name="micro-atx" value="micro-atx">
+                    <input type="checkbox" id="micro-atx" name="microAtx" value="micro-atx">
                     <label for="micro-atx"> Micro-ATX </label>
                     <input type="checkbox" id="atx" name="atx" value="atx">
                     <label for="atx"> ATX </label>
@@ -191,8 +215,8 @@
                     <label for="eatx"> EATX </label><br>
                 <br><p>Largo maximo de gpu permitidas por el gabinete</p><br>
                     <input type="number" name="largo" placeholder="largo en milimetros"><br>
-                <br><p>Cantidad de ventiladores</p><br>
-                    <select name="num-fans1">
+                <br><p>Cantidad de ventiladores posibles</p><br>
+                    <select name="numFans1">
                         <option value="0">0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -200,8 +224,8 @@
                         <option value="4">4</option>
                         <option value="5">5</option>
                         <option value="6">6</option>
-                        <option value="1">7</option>
-                        <option value="2">8</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
                     </select>
                     <select name="fans1">
                         <option value="80">80mm</option>
@@ -210,9 +234,9 @@
                         <option value="140">140mm</option>
                         <option value="200">200mm</option>
                         <option value="250">250mm</option>
-                    </select><br>
+                    </select>frontales<br>
 
-                    <select name="num-fans2">
+                    <select name="numFans2">
                         <option value="0">0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -220,8 +244,8 @@
                         <option value="4">4</option>
                         <option value="5">5</option>
                         <option value="6">6</option>
-                        <option value="1">7</option>
-                        <option value="2">8</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
                     </select>
                     <select name="fans2">
                         <option value="80">80mm</option>
@@ -230,9 +254,9 @@
                         <option value="140">140mm</option>
                         <option value="200">200mm</option>
                         <option value="250">250mm</option>
-                    </select><br>
+                    </select>laterales<br>
 
-                    <select name="num-fans3">
+                    <select name="numFans3">
                         <option value="0">0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -240,8 +264,8 @@
                         <option value="4">4</option>
                         <option value="5">5</option>
                         <option value="6">6</option>
-                        <option value="1">7</option>
-                        <option value="2">8</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
                     </select>
                     <select name="fans3">
                         <option value="80">80mm</option>
@@ -250,9 +274,9 @@
                         <option value="140">140mm</option>
                         <option value="200">200mm</option>
                         <option value="250">250mm</option>
-                    </select><br>
+                    </select>superiores<br>
 
-                    <select name="num-fans4">
+                    <select name="numFans4">
                         <option value="0">0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -260,8 +284,8 @@
                         <option value="4">4</option>
                         <option value="5">5</option>
                         <option value="6">6</option>
-                        <option value="1">7</option>
-                        <option value="2">8</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
                     </select>
                     <select name="fans4">
                         <option value="80">80mm</option>
@@ -270,7 +294,7 @@
                         <option value="140">140mm</option>
                         <option value="200">200mm</option>
                         <option value="250">250mm</option>
-                    </select><br>
+                    </select>traseros<br>
             </div><br>
         </form>
         <div id="conclusion">
