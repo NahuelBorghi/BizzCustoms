@@ -106,20 +106,21 @@ class compat {
             contra.innerHTML=`<h2>CONTRAS</h2>`;
             errores.innerHTML=`<h2>ERRORES</h2>`;
         }
-        let i=0,c=0;
+        let i=0,c=0,almacenamiento=0;
         while(i<this.alm.length){
             if(this.alm[i].tipo=="ssd"||this.alm[i].tipo=="hdd"){
             c+=parseInt(this.alm[i].cantidad);}
             i++;
         }
+        almacenamiento+=c;
         if(this.placa.sata<c){
-            errores.innerHTML+=`<h3>cantidad de satas de la placa: ${this.placa.sata} /vs/ satas usados: ${c}</h3>
+            errores.innerHTML+=`<h3>cantidad de satas de la placa: ${this.placa.sata} / satas usados: ${c}</h3>
             <p>La placa madre no tiene suficientes conectores sata para los dispositivos</p><br>`;
         }else if(this.placa.sata==c){
-            contra.innerHTML+=`<h3>cantidad de satas de la placa: ${this.placa.sata} /vs/ satas usados: ${c}</h3>
+            contra.innerHTML+=`<h3>cantidad de satas de la placa: ${this.placa.sata} / satas usados: ${c}</h3>
             <p>La placa madre no soporta mas dispositivos sata</p><br>`;
         }else{
-            pro.innerHTML+=`<h3>cantidad de satas de la placa: ${this.placa.sata} /vs/ satas usados: ${c}</h3>
+            pro.innerHTML+=`<h3>cantidad de satas de la placa: ${this.placa.sata} / satas usados: ${c}</h3>
             <p>Se puede agregar mas dispositivos de almacenamiento sata</p><br>`;
         }
         i=0,c=0;
@@ -128,14 +129,15 @@ class compat {
             c+=parseInt(this.alm[i].cantidad);}
             i++;
         }
+        almacenamiento+=c;
         if(this.placa.m2<c){
-            errores.innerHTML+=`<h3>cantidad de m2 de la placa: ${this.placa.m2} /vs/ m2 usados: ${c}</h3>
+            errores.innerHTML+=`<h3>cantidad de m2 de la placa: ${this.placa.m2} / m2 usados: ${c}</h3>
             <p>La placa madre no tiene suficientes conectores m2 para los dispositivos</p><br>`;
         }else if(this.placa.m2==c){
-            contra.innerHTML+=`<h3>cantidad de m2 de la placa: ${this.placa.m2} /vs/ m2 usados: ${c}</h3>
+            contra.innerHTML+=`<h3>cantidad de m2 de la placa: ${this.placa.m2} / m2 usados: ${c}</h3>
             <p>La placa madre no soporta mas dispositivos m2</p><br>`;
         }else{
-            pro.innerHTML+=`<h3>cantidad de m2 de la placa: ${this.placa.m2} /vs/ m2 usados: ${c}</h3>
+            pro.innerHTML+=`<h3>cantidad de m2 de la placa: ${this.placa.m2} / m2 usados: ${c}</h3>
             <p>Se puede agregar mas dispositivos de almacenamiento m2</p><br>`;
         }
         i=0,c=0;
@@ -144,21 +146,36 @@ class compat {
             c+=parseInt(this.alm[i].cantidad);}
             i++;
         }
-        if(this.placa.pciex<c){
-            errores.innerHTML+=`<h3>cantidad de pci-express de la placa: ${this.placa.pciex} /vs/ pci-express usados: ${c}</h3>
+        almacenamiento+=c;
+        i=0;
+        let dispPci=0;
+        while(i<this.placa.pciex.length){
+            if(this.placa.pciex[i].cantidad>0){
+                dispPci+=parseInt(this.placa.pciex[i].cantidad);
+            }
+            i++;
+        }
+        if(dispPci<c){
+            errores.innerHTML+=`<h3>cantidad de pci-express de la placa: ${dispPci} / pci-express usados: ${c}</h3>
             <p>La placa madre no tiene suficientes conectores pci-express para los dispositivos</p><br>`;
-        }else if(this.placa.pciex==c){
-            contra.innerHTML+=`<h3>cantidad de pci-express de la placa: ${this.placa.pciex} /vs/ pci-express usados: ${c}</h3>
-            <p>La placa madre no soporta mas dispositivos pci-express</p><br>`;
+        }else if(dispPci==c && this.gpu.flag=="si"){
+            errores.innerHTML+=`<h3>pci-express de la placa: ${dispPci} / pci-express usados: ${c+1}</h3>
+            <p>La placa madre no tiene suficientes conectores pci-express para los dispositivos</p><br>`;
+        }else if(dispPci==c){
+            contra.innerHTML+=`<h3>pci-express de la placa: ${dispPci} / pci-express usados: ${c}</h3>
+            <p>La placa madre no tiene mas conectores pci-express disponibles</p><br>`;
         }else{
-            pro.innerHTML+=`<h3>cantidad de pci-express de la placa: ${this.placa.pciex} /vs/ pci-express usados: ${c}</h3>
+            pro.innerHTML+=`<h3>cantidad de pci-express de la placa: ${dispPci} / pci-express usados: ${c}</h3>
             <p>Se puede agregar mas dispositivos de almacenamiento pci-express</p><br>`;
+        }
+        if(almacenamiento==0){errores.innerHTML+=`<h3>No hay dispositivos de almacenamiento</h3>
+        <p>Para usar la computadora se debe instalar al menos un dispositivo de almacenamiento</p><br>`;
         }
         i=0,c=0;
         while(i<this.placa.gens.length){
             while(c<this.cpu.gen.length){
                 if(this.placa.gens[i]!=this.cpu.gen[c]){
-                    errores.innerHTML+=`<h3>generaciones compatibles con la placa:  ${this.placa.gens[i]} /vs/ generacion del cpu: ${this.cpu.gen[c]}</h3>
+                    errores.innerHTML+=`<h3>generaciones compatibles con la placa:  ${this.placa.gens[i]} / generacion del cpu: ${this.cpu.gen[c]}</h3>
                     <p>La placa madre no es compatible con el procesador</p><br>`;
                 }
                 c++;
@@ -166,14 +183,15 @@ class compat {
             c=0;
             i++;
         }
+        i=0;
         while(i<this.gabin.tamMothers.length&&this.gabin.tamMothers[i]!=this.placa.size){i++}
         if(this.gabin.tamMothers[i]!=this.placa.size){
-            errores.innerHTML+=`<h3>tipo de mother: ${this.placa.size} /vs/ mothers soportadas por gabinete: ${this.gabin.tamMothers[i]}</h3>
+            errores.innerHTML+=`<h3>tipo de mother: ${this.placa.size} / mothers soportadas por gabinete: ${this.gabin.tamMothers}</h3>
             <p>la placa madre no entra correctamente en el gabinete</p><br>`;
         }
         i=0;
         if(this.gabin.largoGpu<=this.gpu.largoAprox){
-            errores.innerHTML+=`<h3>largo de gpu soportado por gabinete: ${this.gabin.largoGpu} /vs/ largo de gpu aproximado: ${this.gpu.largoAprox}</h3>
+            errores.innerHTML+=`<h3>largo de gpu soportado por gabinete: ${this.gabin.largoGpu} / largo de gpu aproximado: ${this.gpu.largoAprox}</h3>
             <p>la placa de video puede no entrar en el gabinete</p><br>`;
         }
         while(i<this.gabin.lados.length){
@@ -210,21 +228,25 @@ class compat {
         if(this.placa.video != this.cpu.apu){
             if(this.placa.video=="no"){
                 if(this.gpu.flag=="no"){
-                    errores.innerHTML+=`<h3>Salida de video en mother: ${this.placa.video} /vs/ gpu: ${this.gpu.flag}</h3>
+                    errores.innerHTML+=`<h3>Salida de video en mother: ${this.placa.video} / gpu: ${this.gpu.flag}</h3>
                     <p>Se necesita una salida de video</p><br>`;
                 }
             }else{
                 if(this.gpu.flag=="no"){
-                    errores.innerHTML+=`<h3>Salida de video en mother: ${this.placa.video} /vs/ cpu con video integrado: ${this.cpu.apu}</h3>
+                    errores.innerHTML+=`<h3>Salida de video en mother: ${this.placa.video} / cpu con video integrado: ${this.cpu.apu}</h3>
                     <p>se necesita un apu compatible con la mother o una placa de video</p><br>`;
                 }
             }
         }else if(this.placa.video=="si"){
-            errores.innerHTML+=`<h3>Salida de video en mother: ${this.placa.video} /vs/ cpu con video integrado: ${this.cpu.apu}</h3>
-            <p>es 100% necesaria una placa de video dedicada</p><br>`;
-        }else{
-            pro.innerHTML+=`<h3>Salida de video en mother: ${this.placa.video} /vs/ cpu con video integrado: ${this.cpu.apu}</h3>
+            pro.innerHTML+=`<h3>Salida de video en mother: ${this.placa.video} / cpu con video integrado: ${this.cpu.apu}</h3>
             <p>No es 100% necesaria una placa de video dedicada</p><br>`;
+        }else{
+            contra.innerHTML+=`<h3>Salida de video en mother: ${this.placa.video} / cpu con video integrado: ${this.cpu.apu}</h3>
+            <p>Es 100% necesaria una placa de video dedicada</p><br>`;
+            if(this.gpu.flag=="no"){
+                errores.innerHTML+=`<h3>Salida de video: ${this.placa.video} y ${this.gpu.flag} hay GPU dedicada</h3>
+                <p>No se podra ver imagen </p><br>`;
+            }
         }
 
         i=0;
@@ -236,10 +258,20 @@ class compat {
                 }
             }else{
                 if(this.rams.tipo=="ddr4"){
-                    pro.innerHTML+=`<p>El tipo de memoria RAM es el standard en el mercado</p><br>`;
+                    pro.innerHTML+=`<h3> ${this.rams.tipo}</h3>
+                    <p>El tipo de memoria RAM es el standard en el mercado</p><br>`;
                 }
             }
             i++;
+        }
+        i=0;
+        if(this.placa.ram<this.rams.modulos){
+            errores.innerHTML+=`<h3>Slots de rams en mother: ${this.placa.ram} / modulos de ram: ${this.rams.modulos}</h3>
+            <p>Hay mas modulos de ram que lugares donde ponerlos. Deberias optar por modulos mas grandes y/o menor cantidad de modulos</p><br>`;
+        }
+        if((this.rams.modulos*this.rams.tam)<=4){
+            contra.innerHTML+=`<h3>4gb o menos de RAM</h3>
+            <p>Para que tu computadora funcione de una mejor manera lo mejor seria usar al menos 8gb de RAM</p><br>`;
         }
         contenedor.appendChild(pro);
         contenedor.appendChild(contra);
@@ -797,10 +829,16 @@ function grafica(){
     let flag=document.compatibilidades.gpu.value;
     let largoAprox=document.compatibilidades.fans.value;
     let nombre=document.compatibilidades.nombreGpu.value.toLowerCase();
+    if(flag=="si"){
+        document.getElementById("nombreGpu").setAttribute("disabled","");
+        document.getElementById("nombreGpu").removeAttribute("disabled");
+    }else{
+        document.getElementById("nombreGpu").setAttribute("disabled","");
+    }
     if(nombre.slice(0,3)!="amd"&&nombre.slice(0,6)!="radeon"&&nombre.slice(0,6)!="nvidia"&&nombre.slice(0,7)!="geforce"&&nombre.slice(0,8)!="ge force"&&nombre.slice(0,2)!="rx"&&nombre.slice(0,2)!="hd"&&nombre.slice(0,3)!="gtx"&&nombre.slice(0,3)!="rtx"){
         nombre="";
     }
-    if(flag!=""&&nombre!=""&&largoAprox!=""){
+    if(flag!=""&&largoAprox!=""){
         let gpu = new placaVideo(flag,nombre,largoAprox);
         return gpu;
     }

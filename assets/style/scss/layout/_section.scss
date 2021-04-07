@@ -373,33 +373,17 @@ form{
     width: 40%;
 }/*
 #compatibilidad {
-    display: grid;
-    grid-template-columns: 0.50fr 0.50fr 1.25fr;
-    grid-template-areas: "comp comp conclusion";
     #compat{
         margin-left: 5%;
-        grid-area: comp;
-        display: grid;
         grid-template-columns: 47% 47%;
-        grid-auto-rows: auto;
-        grid-auto-flow: row dense;
         column-gap: 5%;
-        row-gap: 1%;
         justify-self: start;
         align-self: stretch;
         text-align: left;
         width: 100%;
-        img{
-            max-height: 3%;
-        }
         div{
             padding: 12%;
             width: 80%;
-            height: auto;
-            border: 1px solid $primario;
-            input{
-                
-            }
         }
         div:nth-child(1){
             grid-area: span 1 / span 2;
@@ -427,12 +411,81 @@ form{
         display: grid;
         grid-auto-rows: auto;
         grid-auto-flow: row dense;
-        column-gap: 1%;
-        row-gap: 1%;
+        column-gap: 4%;
+        row-gap: 2%;
         justify-self: start;
         align-self: stretch;
         text-align: left;
         width: 100%;
+        #mother,#cpu,#ram,#gpu,#discos,#refri,#gabinete,#marca{
+            input[type="radio"],
+            input[type="checkbox"]{
+                display: none;
+            }
+            label{
+                color: inherit;
+                padding: 5px 10px 5px 30px;
+                display: inline-block;
+                position: relative;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+            label:hover{
+                background-color: rgba($secundario, $alpha: 0.3);
+            }
+            #checkboxs{
+                label:before{
+                    border-radius: 10%;
+                }
+            }
+            label:before{
+                content: "";
+                width: 10px;
+                height: 10px;
+                display: inline-block;
+                background-color: none;
+                border: 3px solid $primario;
+                border-radius: 50%;
+                position: absolute;
+                left: 10px;
+                top: 4px;
+            }
+            input[type="radio"]:checked + label,
+            input[type="checkbox"]:checked + label{
+                padding: 5px 10px;
+                background-color: rgba($primario, $alpha: 1.0);
+                border-radius: 2px;
+                color: $secundario;
+            }
+            input[type="radio"]:checked + label:before,
+            input[type="checkbox"]:checked + label:before{
+                display: none;
+            }
+        }
+        #marca{
+            label{
+                padding: 0px;
+                margin-top: 5%;
+                margin-left: 3%;
+                margin-right: 3%;
+                img{
+                    background-color: inherit;
+                    padding: 15px 10px 15px 10px;
+                    border-radius: 5px;
+                }
+            }
+            label:before{
+                display: none;
+            }
+            input[type="radio"]:checked + label,
+            input[type="checkbox"]:checked + label{
+                padding: 0px;
+                background-color: rgba($primario, $alpha: 1.0);
+                border-radius: 2px;
+                color: $secundario;
+            }
+        }
         div{
             padding: 2%;
             height: 100%;
@@ -444,18 +497,18 @@ form{
                 border-radius: 10px;                
                 padding: 7px;
             }
+            input[type="number"]{
+                width: 150px;
+            }
             select{
                 color: inherit;
                 padding: 2px;
                 background-color: inherit;
                 border: inherit;
                 border-radius: 5px;
-            }
-            input[type="radio"]{
-                background-color: inherit;
-            }
-            img{
-                max-height: 5%;
+                option{
+                    color: black;
+                }
             }
             label{
                 max-height: 5%;
@@ -463,12 +516,28 @@ form{
         }
         div:nth-child(1){
             text-align: center;
+            padding: 0%;
+            img{padding-top: 4%;}
+        }
+    }
+    @media only screen and (min-width:1200px){
+        #compat{margin-left: 5%;grid-template-columns: 47% 47%;column-gap: 5%;row-gap: 2%;justify-self: start;align-self: stretch;text-align: left;width: 100%;
+            div{padding: 6%;}div:nth-child(1){grid-area: span 1 / span 2;padding: 0%;}div:nth-child(2){grid-area: span 4 / span 1;}div:nth-child(8){grid-area: span 4 / span 1;}
         }
     }
     #conclusion{
         grid-area: conclusion;
+        padding: 0% 5%;
+    }
+    @media only screen and (max-width:768px){
+        #conclusion{
+            margin-top:60%;
+        }
     }
 }
+@media only screen and (min-width:768px){#compatibilidad{grid-template-columns: 0.70fr 0.70fr 1.25fr;grid-template-areas: "comp comp conclusion";}}
+@media only screen and (min-width:900px){#compatibilidad{grid-template-columns: 0.50fr 0.50fr 1.25fr;grid-template-areas: "comp comp conclusion";}}
+    
 .slider{
     width: 100%;
     margin-left: 0%;

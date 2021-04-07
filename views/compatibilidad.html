@@ -30,19 +30,19 @@
         <!--pruebas para una funcion de compatibilidad entre partes de pc (sin ventas)
             hacer que el formulario ocupe 2 tercios o la mitad de la pantalla para mostra
             las sugerencias y errores del otro lado en tiempo real-->
-		<form id="compat" name="compatibilidades" action="" method="get">
-            <div>
-                <label for="intel"><img src="../assets/images/1280px-Intel-logo.svg.png" alt="intel"></label>
-                <label for="amd"><img src="../assets/images/AMD-Logo_grande.png" alt="amd"></label><br>
-                <!-- hacer que los botones marquen un radio invisible-->
+		<form id="compat" name="compatibilidades" method="get">
+            <div id="marca">
                 <input type="radio" name="cpu" id="intel" value="intel">
+                <label for="intel"><img src="../assets/images/1280px-Intel-logo.svg.png" alt="intel"></label>
                 <input type="radio" name="cpu" id="amd" value="amd">
+                <label for="amd"><img src="../assets/images/AMD-Logo_grande.png" alt="amd"></label>
+                <!-- hacer que los botones marquen un radio invisible-->
             </div>
 
             <div id="mother"><!--placa madre-->
                     <input type="text" name="chipset" placeholder="chipset"><br>
-                    <input type="text" name="socket" id="socalo" placeholder="socalo de placa madre"><br>
-                    <input type="text" name="nombreMother" id="nombre" placeholder="nombre"><br>
+                    <input type="text" name="socket" placeholder="socalo de placa madre"><br>
+                    <input type="text" name="nombreMother" placeholder="nombre"><br>
                 <br><p>Tiene salidas de video?</p><br>
                     <input type="radio" name="tamMother" value="mini-itx" id="mini">
                     <label for="mini">Mini-ITX</label> 
@@ -67,7 +67,7 @@
                 <p>Cuantos puertos M.2 tiene?</p><br>
                     <input type="number" name="m2" placeholder="Puertos M.2" min="0" max="3"><br>
                 <p>Cuantos puertos PCI-Express tiene?</p><br>
-                    <input type="number" name="pcie1" id="pcie1" placeholder="Puertos PCI-Express" min="0" max="3"><br>
+                    <input type="number" name="pcie1" placeholder="Puertos PCI-Express" min="0" max="3"><br>
                     <input type="radio" name="lineas1" id="lineas11" value="1">
                     <label for="lineas11">x1</label>
                     <input type="radio" name="lineas1" id="lineas14" value="4">
@@ -77,17 +77,17 @@
                     <input type="radio" name="lineas1" id="lineas116" value="16">
                     <label for="lineas116">x16</label><br>
 
-                    <input type="number" name="pcie2" id="pcie2" placeholder="Puertos PCI-Express" min="0" max="3"><br>
-                    <input type="radio" name="lineas21" id="lineas2" value="1">
+                    <input type="number" name="pcie2" placeholder="Puertos PCI-Express" min="0" max="3"><br>
+                    <input type="radio" name="lineas2" id="lineas21" value="1">
                     <label for="lineas21">x1</label>
-                    <input type="radio" name="lineas24" id="lineas2" value="4">
+                    <input type="radio" name="lineas2" id="lineas24" value="4">
                     <label for="lineas24">x4</label>
-                    <input type="radio" name="lineas28" id="lineas2" value="8">
+                    <input type="radio" name="lineas2" id="lineas28" value="8">
                     <label for="lineas28">x8</label>
-                    <input type="radio" name="lineas216" id="lineas2" value="16">
+                    <input type="radio" name="lineas2" id="lineas216" value="16">
                     <label for="lineas216">x16</label> <br>
 
-                    <input type="number" name="pcie3" id="pcie3" placeholder="Puertos PCI-Express" min="0" max="3"><br>
+                    <input type="number" name="pcie3" placeholder="Puertos PCI-Express" min="0" max="3"><br>
                     <input type="radio" name="lineas3" id="lineas31" value="1">
                     <label for="lineas31">x1</label>
                     <input type="radio" name="lineas3" id="lineas34" value="4">
@@ -97,22 +97,22 @@
                     <input type="radio" name="lineas3" id="lineas316" value="16">
                     <label for="lineas316">x16</label> <br>
 
-                    <input type="number" name="pcie4" id="pcie4" placeholder="Puertos PCI-Express" min="0" max="3"><br>
-                    <input type="radio" name="lineas41" id="lineas4" value="1">
+                    <input type="number" name="pcie4" placeholder="Puertos PCI-Express" min="0" max="3"><br>
+                    <input type="radio" name="lineas4" id="lineas41" value="1">
                     <label for="lineas41">x1</label>
-                    <input type="radio" name="lineas44" id="lineas4" value="4">
+                    <input type="radio" name="lineas4" id="lineas44" value="4">
                     <label for="lineas44">x4</label>
-                    <input type="radio" name="lineas48" id="lineas4" value="8">
-                    <label for="vlineas48">x8</label>
-                    <input type="radio" name="lineas416" id="lineas4" value="16">
+                    <input type="radio" name="lineas4" id="lineas48" value="8">
+                    <label for="lineas48">x8</label>
+                    <input type="radio" name="lineas4" id="lineas416" value="16">
                     <label for="lineas416">x16</label><br>
                 <p>Cuantos puertos PCI tiene?</p><br>
                     <input type="number" name="pci" placeholder="Puertos PCI" min="0" max="3"><br>
                 <br><p>Tiene RGB</p><br>
-                    <input type="radio" name="rgb" id="rgb" value="si">
-                    <label for=""></label>si
-                    <input type="radio" name="rgb" id="rgb" value="no">
-                    <label for=""></label>no<br>
+                    <input type="radio" name="rgb" id="s2" value="si">
+                    <label for="s2">si</label>
+                    <input type="radio" name="rgb" id="n2" value="no">
+                    <label for="n2">no</label><br>
             </div>
 
             <div id="cpu">
@@ -121,10 +121,10 @@
                     <input type="text" name="nombreCpu" placeholder="(sin marca)"><br>
                     <!--sacar generacion y gama a partir del nombre y marca en js-->
                 <br><p>Tiene gpu integrada</p><br>
-                    <input type="radio" name="apu" value="si">
-                    <label for=""></label>si
-                    <input type="radio" name="apu" value="no">
-                    <label for=""></label>no<br>
+                    <input type="radio" name="apu" id="s3" value="si">
+                    <label for="s3">si</label>
+                    <input type="radio" name="apu" id="n3" value="no">
+                    <label for="n3">no</label><br>
                     <!--a partir de chipset y generacion conseguir el tipo de ram que usa-->
             </div>
 
@@ -135,75 +135,75 @@
                     <option value="ddr3">DDR3</option>
                 </select><br>
                 <input type="number" name="modulosRam" placeholder="cantidad de modulos" min="1" max="4"><br>
-                <input type="radio" name="ram" value="2">
-                <label for=""></label>2gb
-                <input type="radio" name="ram" value="4">
-                <label for=""></label>4gb
-                <input type="radio" name="ram" value="8">
-                <label for=""></label>8gb
-                <input type="radio" name="ram" value="16">
-                <label for=""></label>16gb<br>
+                <input type="radio" name="ram" id="2gb" value="2">
+                <label for="2gb">2gb</label>
+                <input type="radio" name="ram" id="4gb" value="4">
+                <label for="4gb">4gb</label>
+                <input type="radio" name="ram" id="8gb" value="8">
+                <label for="8gb">8gb</label>
+                <input type="radio" name="ram" id="16gb" value="16">
+                <label for="16gb">16gb</label><br>
             </div>
 
             <div id="gpu"><!--gpu / tambien invisible hasta que este listo lo anterior-->
                 <br><p>Tiene placa de video dedicada</p><br>
-                    <input type="radio" name="gpu" value="si">
-                    <label for=""></label>si
-                    <input type="radio" name="gpu" value="no">
-                    <label for=""></label>no<br>
-                    <input type="text" name="nombreGpu" placeholder="nombre de la placa de video"><br>
+                    <input type="radio" name="gpu" value="si" id="s4">
+                    <label for="s4">si</label>
+                    <input type="radio" name="gpu" value="no" id="n4">
+                    <label for="n4">no</label><br>
+                    <input type="text" name="nombreGpu" id="nombreGpu"placeholder="nombre de la placa de video"><br>
                 <br><p>Cantidad de ventiladores</p><br> <!--para calcular largo de gpu aprox-->
-                    <input type="radio" name="fans" value="170">
-                    <label for=""></label>0
-                    <input type="radio" name="fans" value="220">
-                    <label for=""></label>1
-                    <input type="radio" name="fans" value="270">
-                    <label for=""></label>2
-                    <input type="radio" name="fans" value="315">
-                    <label for=""></label>3<br>
+                    <input type="radio" name="fans" value="170" id="chica">
+                    <label for="chica">0</label>
+                    <input type="radio" name="fans" value="220" id="media">
+                    <label for="media">1</label>
+                    <input type="radio" name="fans" value="270" id="grande">
+                    <label for="grande">2</label>
+                    <input type="radio" name="fans" value="315" id="muyGrande">
+                    <label for="muyGrande">3</label><br>
             </div>
 
             <div id="discos">
                 <br><p>Cantidad de discos</p><br> <!--para calcular SATAs disponibles/invisible-->
-                    <input type="number" name="disco1" placeholder="cantidad de discos"><br>
-                    <input type="radio" name="tipoDisco1" value="ssd">
-                    <label for=""></label>ssd
-                    <input type="radio" name="tipoDisco1" value="hdd">
-                    <label for=""></label>hdd
-                    <input type="radio" name="tipoDisco1" value="m.2">
-                    <label for=""></label>m.2
-                    <input type="radio" name="tipoDisco1" value="pcie">
-                    <label for=""></label>pcie<br>
+                    <input type="number" name="disco1" placeholder="cantidad de discos" min="1"><br>
+                    <input type="radio" name="tipoDisco1" value="ssd" id="ssd1">
+                    <label for="ssd1">ssd</label>
+                    <input type="radio" name="tipoDisco1" value="hdd" id="hdd1">
+                    <label for="hdd1">hdd</label>
+                    <input type="radio" name="tipoDisco1" value="m2" id="m21">
+                    <label for="m21">m.2</label>
+                    <input type="radio" name="tipoDisco1" value="pcie" id="pcie11">
+                    <label for="pcie11">pcie</label><br>
 
-                    <input type="number" name="disco2" placeholder="cantidad de discos"><br>
-                    <input type="radio" name="tipoDisco2" value="ssd">
-                    <label for=""></label>ssd
-                    <input type="radio" name="tipoDisco2" value="hdd">
-                    <label for=""></label>hdd
-                    <input type="radio" name="tipoDisco2" value="m.2">
-                    <label for=""></label>m.2
-                    <input type="radio" name="tipoDisco2" value="pcie">
-                    <label for=""></label>pcie<br>
+                    <input type="number" name="disco2" placeholder="cantidad de discos"min="1"><br>
+                    <input type="radio" name="tipoDisco2" value="ssd" id="ssd2">
+                    <label for="ssd2">ssd</label>
+                    <input type="radio" name="tipoDisco2" value="hdd" id="hdd2">
+                    <label for="hdd2">hdd</label>
+                    <input type="radio" name="tipoDisco2" value="m2" id="m22">
+                    <label for="m22">m.2</label>
+                    <input type="radio" name="tipoDisco2" value="pcie" id="pcie22">
+                    <label for="pcie22">pcie</label><br>
 
-                    <input type="number" name="disco3" placeholder="cantidad de discos"><br>
-                    <input type="radio" name="tipoDisco3" value="ssd">
-                    <label for=""></label>ssd
-                    <input type="radio" name="tipoDisco3" value="hdd">
-                    <label for=""></label>hdd
-                    <input type="radio" name="tipoDisco3" value="m.2">
-                    <label for=""></label>m.2
-                    <input type="radio" name="tipoDisco3" value="pcie">
-                    <label for=""></label>pcie<br>
+                    <input type="number" name="disco3" placeholder="cantidad de discos"min="1"><br>
+                    <input type="radio" name="tipoDisco3" value="ssd" id="ssd3">
+                    <label for="ssd3">ssd</label>
+                    <input type="radio" name="tipoDisco3" value="hdd" id="hdd3">
+                    <label for="hdd3">hdd</label>
+                    <input type="radio" name="tipoDisco3" value="m2" id="m23">
+                    <label for="m23">m.2</label>
+                    <input type="radio" name="tipoDisco3" value="pcie" id="pcie33">
+                    <label for="pcie33">pcie</label><br>
 
-                    <input type="number" name="disco4" placeholder="cantidad de discos"><br>
-                    <input type="radio" name="tipoDisco4" value="ssd">
-                    <label for=""></label>ssd
-                    <input type="radio" name="tipoDisco4" value="hdd">
-                    <label for=""></label>hdd
-                    <input type="radio" name="tipoDisco4" value="m.2">
-                    <label for=""></label>m.2
-                    <input type="radio" name="tipoDisco4" value="pcie">
-                    <label for=""></label>pcie<br>
+                    <input type="number" name="disco4" placeholder="cantidad de discos"min="1"><br>
+                    <input type="radio" name="tipoDisco4" value="ssd"id="ssd4">
+                    <label for="ssd4">ssd</label>
+                    <input type="radio" name="tipoDisco4" value="hdd"id="hdd4">
+                    <label for="hdd4">hdd</label>
+                    <input type="radio" name="tipoDisco4" value="m2" id="m24">
+                    <label for="m24">m.2</label>
+                    <input type="radio" name="tipoDisco4" value="pcie" id="pcie44">
+                    <label for="pcie44">pcie</label><br>
             </div>
 
             <div id="refri"><!--refrigeracion liquida/invisible-->
@@ -256,19 +256,21 @@
 
             <div id="gabinete"><!--gabinete/invisible hasta calcular anterior-->
                 <br><p>El gabinete tiene luces?</p><br>
-                    <input type="radio" name="luces" value="si">
-                    <label for=""></label>si
-                    <input type="radio" name="luces" value="no">
-                    <label for=""></label>no<br>
+                    <input type="radio" name="luces" value="si" id="s5">
+                    <label for="s5">si</label>
+                    <input type="radio" name="luces" value="no" id="n5">
+                    <label for="n5">no</label><br>
                 <br><p>Tamaño de mother permitidas por el gabinete</p><br>
-                    <input type="checkbox" id="mini-itx" name="miniItx" value="mini-itx">
-                    <label for="mini-itx"> Mini-ITX </label>
-                    <input type="checkbox" id="micro-atx" name="microAtx" value="micro-atx">
-                    <label for="micro-atx"> Micro-ATX </label>
+                    <span id="checkboxs">
+                    <input type="checkbox" id="min" name="miniItx" value="mini-itx">
+                    <label for="min"> Mini-ITX </label>
+                    <input type="checkbox" id="micr" name="microAtx" value="micro-atx">
+                    <label for="micr"> Micro-ATX </label>
                     <input type="checkbox" id="atx" name="atx" value="atx">
                     <label for="atx"> ATX </label>
-                    <input type="checkbox" id="eatx" name="eatx" value="eatx">
-                    <label for="eatx"> EATX </label><br>
+                    <input type="checkbox" id="ea" name="eatx" value="eatx">
+                    <label for="ea"> EATX </label>
+                    </span><br>
                 <br><p>Largo maximo de gpu permitidas por el gabinete</p><br>
                     <input type="number" name="largo" placeholder="largo en milimetros"><br>
                 <br><p>Cantidad de ventiladores posibles</p><br>

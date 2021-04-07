@@ -532,33 +532,17 @@ form div {
 
 /*
 #compatibilidad {
-    display: grid;
-    grid-template-columns: 0.50fr 0.50fr 1.25fr;
-    grid-template-areas: "comp comp conclusion";
     #compat{
         margin-left: 5%;
-        grid-area: comp;
-        display: grid;
         grid-template-columns: 47% 47%;
-        grid-auto-rows: auto;
-        grid-auto-flow: row dense;
         column-gap: 5%;
-        row-gap: 1%;
         justify-self: start;
         align-self: stretch;
         text-align: left;
         width: 100%;
-        img{
-            max-height: 3%;
-        }
         div{
             padding: 12%;
             width: 80%;
-            height: auto;
-            border: 1px solid $primario;
-            input{
-                
-            }
         }
         div:nth-child(1){
             grid-area: span 1 / span 2;
@@ -585,12 +569,85 @@ form div {
     display: grid;
     grid-auto-rows: auto;
     grid-auto-flow: row dense;
-    column-gap: 1%;
-    row-gap: 1%;
+    column-gap: 4%;
+    row-gap: 2%;
     justify-self: start;
     align-self: stretch;
     text-align: left;
     width: 100%; }
+    #compatibilidad #compat #mother input[type="radio"],
+    #compatibilidad #compat #mother input[type="checkbox"], #compatibilidad #compat #cpu input[type="radio"],
+    #compatibilidad #compat #cpu input[type="checkbox"], #compatibilidad #compat #ram input[type="radio"],
+    #compatibilidad #compat #ram input[type="checkbox"], #compatibilidad #compat #gpu input[type="radio"],
+    #compatibilidad #compat #gpu input[type="checkbox"], #compatibilidad #compat #discos input[type="radio"],
+    #compatibilidad #compat #discos input[type="checkbox"], #compatibilidad #compat #refri input[type="radio"],
+    #compatibilidad #compat #refri input[type="checkbox"], #compatibilidad #compat #gabinete input[type="radio"],
+    #compatibilidad #compat #gabinete input[type="checkbox"], #compatibilidad #compat #marca input[type="radio"],
+    #compatibilidad #compat #marca input[type="checkbox"] {
+      display: none; }
+    #compatibilidad #compat #mother label, #compatibilidad #compat #cpu label, #compatibilidad #compat #ram label, #compatibilidad #compat #gpu label, #compatibilidad #compat #discos label, #compatibilidad #compat #refri label, #compatibilidad #compat #gabinete label, #compatibilidad #compat #marca label {
+      color: inherit;
+      padding: 5px 10px 5px 30px;
+      display: inline-block;
+      position: relative;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s; }
+    #compatibilidad #compat #mother label:hover, #compatibilidad #compat #cpu label:hover, #compatibilidad #compat #ram label:hover, #compatibilidad #compat #gpu label:hover, #compatibilidad #compat #discos label:hover, #compatibilidad #compat #refri label:hover, #compatibilidad #compat #gabinete label:hover, #compatibilidad #compat #marca label:hover {
+      background-color: rgba(79, 174, 225, 0.3); }
+    #compatibilidad #compat #mother #checkboxs label:before, #compatibilidad #compat #cpu #checkboxs label:before, #compatibilidad #compat #ram #checkboxs label:before, #compatibilidad #compat #gpu #checkboxs label:before, #compatibilidad #compat #discos #checkboxs label:before, #compatibilidad #compat #refri #checkboxs label:before, #compatibilidad #compat #gabinete #checkboxs label:before, #compatibilidad #compat #marca #checkboxs label:before {
+      border-radius: 10%; }
+    #compatibilidad #compat #mother label:before, #compatibilidad #compat #cpu label:before, #compatibilidad #compat #ram label:before, #compatibilidad #compat #gpu label:before, #compatibilidad #compat #discos label:before, #compatibilidad #compat #refri label:before, #compatibilidad #compat #gabinete label:before, #compatibilidad #compat #marca label:before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      display: inline-block;
+      background-color: none;
+      border: 3px solid #414E89;
+      border-radius: 50%;
+      position: absolute;
+      left: 10px;
+      top: 4px; }
+    #compatibilidad #compat #mother input[type="radio"]:checked + label,
+    #compatibilidad #compat #mother input[type="checkbox"]:checked + label, #compatibilidad #compat #cpu input[type="radio"]:checked + label,
+    #compatibilidad #compat #cpu input[type="checkbox"]:checked + label, #compatibilidad #compat #ram input[type="radio"]:checked + label,
+    #compatibilidad #compat #ram input[type="checkbox"]:checked + label, #compatibilidad #compat #gpu input[type="radio"]:checked + label,
+    #compatibilidad #compat #gpu input[type="checkbox"]:checked + label, #compatibilidad #compat #discos input[type="radio"]:checked + label,
+    #compatibilidad #compat #discos input[type="checkbox"]:checked + label, #compatibilidad #compat #refri input[type="radio"]:checked + label,
+    #compatibilidad #compat #refri input[type="checkbox"]:checked + label, #compatibilidad #compat #gabinete input[type="radio"]:checked + label,
+    #compatibilidad #compat #gabinete input[type="checkbox"]:checked + label, #compatibilidad #compat #marca input[type="radio"]:checked + label,
+    #compatibilidad #compat #marca input[type="checkbox"]:checked + label {
+      padding: 5px 10px;
+      background-color: #414e89;
+      border-radius: 2px;
+      color: #4faee1; }
+    #compatibilidad #compat #mother input[type="radio"]:checked + label:before,
+    #compatibilidad #compat #mother input[type="checkbox"]:checked + label:before, #compatibilidad #compat #cpu input[type="radio"]:checked + label:before,
+    #compatibilidad #compat #cpu input[type="checkbox"]:checked + label:before, #compatibilidad #compat #ram input[type="radio"]:checked + label:before,
+    #compatibilidad #compat #ram input[type="checkbox"]:checked + label:before, #compatibilidad #compat #gpu input[type="radio"]:checked + label:before,
+    #compatibilidad #compat #gpu input[type="checkbox"]:checked + label:before, #compatibilidad #compat #discos input[type="radio"]:checked + label:before,
+    #compatibilidad #compat #discos input[type="checkbox"]:checked + label:before, #compatibilidad #compat #refri input[type="radio"]:checked + label:before,
+    #compatibilidad #compat #refri input[type="checkbox"]:checked + label:before, #compatibilidad #compat #gabinete input[type="radio"]:checked + label:before,
+    #compatibilidad #compat #gabinete input[type="checkbox"]:checked + label:before, #compatibilidad #compat #marca input[type="radio"]:checked + label:before,
+    #compatibilidad #compat #marca input[type="checkbox"]:checked + label:before {
+      display: none; }
+    #compatibilidad #compat #marca label {
+      padding: 0px;
+      margin-top: 5%;
+      margin-left: 3%;
+      margin-right: 3%; }
+      #compatibilidad #compat #marca label img {
+        background-color: inherit;
+        padding: 15px 10px 15px 10px;
+        border-radius: 5px; }
+    #compatibilidad #compat #marca label:before {
+      display: none; }
+    #compatibilidad #compat #marca input[type="radio"]:checked + label,
+    #compatibilidad #compat #marca input[type="checkbox"]:checked + label {
+      padding: 0px;
+      background-color: #414e89;
+      border-radius: 2px;
+      color: #4faee1; }
     #compatibilidad #compat div {
       padding: 2%;
       height: 100%;
@@ -601,22 +658,58 @@ form div {
         border: inherit;
         border-radius: 10px;
         padding: 7px; }
+      #compatibilidad #compat div input[type="number"] {
+        width: 150px; }
       #compatibilidad #compat div select {
         color: inherit;
         padding: 2px;
         background-color: inherit;
         border: inherit;
         border-radius: 5px; }
-      #compatibilidad #compat div input[type="radio"] {
-        background-color: inherit; }
-      #compatibilidad #compat div img {
-        max-height: 5%; }
+        #compatibilidad #compat div select option {
+          color: black; }
       #compatibilidad #compat div label {
         max-height: 5%; }
     #compatibilidad #compat div:nth-child(1) {
-      text-align: center; }
+      text-align: center;
+      padding: 0%; }
+      #compatibilidad #compat div:nth-child(1) img {
+        padding-top: 4%; }
+  @media only screen and (min-width: 1200px) {
+    #compatibilidad #compat {
+      margin-left: 5%;
+      grid-template-columns: 47% 47%;
+      column-gap: 5%;
+      row-gap: 2%;
+      justify-self: start;
+      align-self: stretch;
+      text-align: left;
+      width: 100%; }
+      #compatibilidad #compat div {
+        padding: 6%; }
+      #compatibilidad #compat div:nth-child(1) {
+        grid-area: span 1 / span 2;
+        padding: 0%; }
+      #compatibilidad #compat div:nth-child(2) {
+        grid-area: span 4 / span 1; }
+      #compatibilidad #compat div:nth-child(8) {
+        grid-area: span 4 / span 1; } }
   #compatibilidad #conclusion {
-    grid-area: conclusion; }
+    grid-area: conclusion;
+    padding: 0% 5%; }
+  @media only screen and (max-width: 768px) {
+    #compatibilidad #conclusion {
+      margin-top: 60%; } }
+
+@media only screen and (min-width: 768px) {
+  #compatibilidad {
+    grid-template-columns: 0.70fr 0.70fr 1.25fr;
+    grid-template-areas: "comp comp conclusion"; } }
+
+@media only screen and (min-width: 900px) {
+  #compatibilidad {
+    grid-template-columns: 0.50fr 0.50fr 1.25fr;
+    grid-template-areas: "comp comp conclusion"; } }
 
 .slider {
   width: 100%;
