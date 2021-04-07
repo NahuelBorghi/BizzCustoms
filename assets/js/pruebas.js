@@ -1,4 +1,4 @@
-document.getElementById("probar").addEventListener("click",pruebas)
+window.addEventListener("load",pruebas)
 class bolsa {
     constructor (producto,cantidad,precio){
     this.producto = producto;
@@ -270,41 +270,6 @@ function desplegar(){
     });
     $("#fondoCuotas").toggle(0);
     $("#ventanaCuotas").toggle(700);
-}
-
-function prueba(e){ /*la variable e se crea a partir de lo que llama a la funcion. en el html hay 2 etiquetas <p>
-    dentro del <div> con el id "probar" la variable e va a ser la etiqueta <p> a la que le haga click.
-    si hago click entre las dos, voy a obtener el div, ya que estaria clickeando el contenedor de las dos <p>*/
-    var url = "../assets/pruebas/articulos.json"
-    var peticion = new XMLHttpRequest()
-    peticion.onreadystatechange= function (){
-        if(this.readyState==4 && this.status ==200){
-            document.getElementsByTagName("section")[0].innerHTML = this.response +" "+ e.target.innerHTML;
-            /*e.target.innerHTML va a ser lo que este dentro de la etiqueta a la que le hice click. si clickeo 
-            el <div> voy a obtener todo tal cual este dentro de el. sin importar si hay botones u otra cosa. pero
-            si en cambio clickeo un boton. solo obtendre el texto del boton*/
-        }
-    };
-    peticion.open("GET", url, true);
-    peticion.send();
-} 
-
-function pruebaswasd(){
-    let contenedor = document.getElementsByTagName("section")[0];
-    let hijo=undefined;
-    let i;
-    for(i=0;i<4;i++){
-    hijo = document.createElement("div");/* tengo que crear un elemento nuevo cada vez que quiero agregar uno
-    si pongo el create element fuera del bucle, solo me va a crear un elemento con el ultimo valor del contador
-    en este caso*/
-    hijo.innerHTML =    `<h4> casa </h4><br>
-                        <h1> casota ${i} </h1>`;
-    hijo.setAttribute("class","article");
-    /* poniendo texto html entre `` que no son las comillas simples como estas '' puedo usar las variables fuera
-    del texto poniendo un signo de dolar y entre llaves como se ve arriba para mostrarlas en el elemento que
-    estoy creando */
-    contenedor.appendChild(hijo);
-    }
 }
 
 function pruebas(){

@@ -490,6 +490,8 @@ form{
             padding: 2%;
             height: 100%;
             border: 1px solid $primario;
+            border-radius: 10px;
+            box-shadow: 0 0 20px $primario;
             input[type="text"],input[type="number"]{
                 color: white;
                 background-color: inherit;
@@ -521,7 +523,7 @@ form{
         }
     }
     @media only screen and (min-width:1200px){
-        #compat{margin-left: 5%;grid-template-columns: 47% 47%;column-gap: 5%;row-gap: 2%;justify-self: start;align-self: stretch;text-align: left;width: 100%;
+        #compat{margin-left: 5%;grid-template-columns: 47% 47%;column-gap: 5%;row-gap: 3%;justify-self: start;align-self: stretch;text-align: left;width: 100%;
             div{padding: 6%;}div:nth-child(1){grid-area: span 1 / span 2;padding: 0%;}div:nth-child(2){grid-area: span 4 / span 1;}div:nth-child(8){grid-area: span 4 / span 1;}
         }
     }
@@ -565,4 +567,72 @@ form{
             max-height: 500px;
         }
     }
+}
+.artiCarrito{
+    display: grid;
+    grid-template-areas: "img h3" "img total";
+    border: 1px solid rgba($primario, $alpha: 1.0);
+    border-radius: 10px;
+    box-shadow: 0 0 20px $primario;
+    margin: 3% 5%;
+    padding: 5%;
+    justify-content: start;
+    img{
+        grid-area: img;
+        height: 100px;
+    }
+    h3{
+        grid-area: h3;
+        padding-left: 50px;
+    }
+    .total{
+        grid-area: total;
+        padding-left: 50px;
+    }
+}
+@media screen and(min-width:900px){
+    .artiCarrito{
+
+        img{
+            height: 150px;
+        }
+        h3{
+            padding-left: 100px;
+        }
+        .total{
+            padding-left: 100px;
+        }
+    }
+}
+@media screen and(min-width:1200px){
+    .artiCarrito{
+        padding: 2%;
+        margin: 3% 25%;
+        img{
+            height: 200px;
+        }
+        h3{
+            padding-left: 150px;
+        }
+        .total{
+            padding-left: 150px;
+        }
+    }
+}
+#total{
+    display: inline;
+    margin-left: 5%;
+}
+#vaciar{
+    position: absolute;
+    right: 5%;
+    background-color: inherit;
+    color: inherit;
+    padding: 7px;
+    border: 1px solid rgba($primario, $alpha: 1.0);
+    border-radius: 10px;
+    box-shadow: 0 0 20px $primario;
+}
+#carrito{
+    display: inline;
 }

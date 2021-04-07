@@ -6,8 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/style/css/style.css"/>
     <!--fuente: yanone kafeesatz-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- iconos de google-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@200;300;400;500;600;700&display=swap"/>
-    <title>Bizz Customs - Inicio</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+ crossorigin="anonymous"></script>
+    <title>Esto podria explotar</title>
 </head>
 <body>
     <header>
@@ -17,195 +21,17 @@
     <div class="logo"><a href="../index.html"><img src="../assets/img-pagina/logo.png" alt="logo"/></a></div>
     <nav>
         <ul>
-            <li class="itemMenu active"><a href="./productos.html">Productos</a></li>
-            <li class="itemMenu"><a href="./compatibilidad.html">Compatibilidad</a></li>
-            <li class="itemMenu"><a href="./calculadora.html">Calcular Watts</a></li>
-            <li class="itemMenu"><a href="./contacto.html">Contacto</a></li>
+            <li><a href="./productos.html">Productos</a></li>
+            <li><a href="./compatibilidad.html">Compatibilidad</a></li>
+            <li><a href="./calculadora.html">Calcular Watts</a></li>
+            <li><a href="./contacto.html">Contacto</a></li>
         </ul>
         <form id="search"action="" method="">
-            <input type="search" placeholder="Buscar..." name="buscar" id="buscar">
+            <input placeholder="Buscar..." name="buscar" id="buscar">
         </form>
     </nav>
     <section>
-        <div class="asideLeft"> <!-- aside -->
-            <h2>Productos</h2>
-            <div>
-                <ul id="tipos">
-                    <li><a href="">tipo 1</a></li>
-                    <li><a href="">tipo 2</a></li>
-                    <li><a href="">tipo 3</a></li>
-                    <li><a href="">tipo 4</a></li>
-                    <li><a href="">tipo 5</a></li>
-                    <li><a href="">tipo 6</a></li>
-                    <li><a href="">tipo 7</a></li>
-                    <li><a href="">tipo 8</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="filtros">
-            <h3>Filtros</h3>
-            <form action="" method="get" enctype="multipart/form-data">
-                <select class="desplegable" name="color" style="display: inline; margin-right: 20px;">
-                    <option value="">-------</option>
-                    <option value="blanco">blanco</option>
-                    <option value="negro">negro</option>
-                    <option value="amarillo">amarillo</option>
-                    <option value="azul">azul</option>
-                    <option value="naranja">naranja</option>
-                    <option value="RGB">RGB</option>
-                    <option value="rojo">rojo</option>
-                    <option value="rosa">rosa</option>
-                    <option value="verde">verde</option>
-                    <option value="violeta">violeta</option>
-                </select>
-                <select class="desplegable" name="orden" style="display: inline; margin-left: 20px;">
-                    <option value="recomendados">recomendados</option>
-                    <option value="baratos">precio: menor a mayor</option>
-                    <option value="caros">precio: menor a mayor</option>
-                    <option value="a-z">orden alfabetico</option>
-                </select>
-                <p id="precio">precio desde: <input class="numeros" type="number" placeholder="minimo" style="margin-right: 5px;"/> hasta:<input class="numeros" type="number" placeholder="maximo"/></p>
-                <input id="aceptar" type="submit" value="aplicar"/>
-            </form>
-        </div>
-        <!-- final barra de filtro -->
-        <!-- inicio de productos -->
-        <div class="listaArticulos">
-            <div class="article">
-                <img src="../assets/images/productos/elevador aluminio.png" />
-                <a class="producto">Elevador de monitor (aluminio)</a>
-            </div>
-            <div class="article">
-                <img src="../assets/images/productos/elevador madera.png" />
-                <a class="producto"> Elevador de monitor (madera)</a>
-            </div>
-            <div class="article">
-                <img src="../assets/images/productos/madera apoyabrazo.png" />
-                <a class="producto"> Reposa muñecas (madera)</a>
-            </div>
-            <div class="article">
-                <img src="../assets/images/productos/madera espacio.png" />
-                <a class="producto"> Barra espaciadora (madera)</a>
-            </div>
-            <div class="article">
-                <img src="../assets/images/productos/kit madera.png" />
-                <a class="producto"> Kit teclas de madera</a>
-            </div>
-            <div class="article">
-                <img src="../assets/images/productos/kit extension blanco.png" />
-                <a class="producto"> Kit extensiones</a>
-            </div>
-            <div class="article">
-                <img src="../assets/images/productos/soporte gpu.png" />
-                <a class="producto"> Soporte vertical de GPU</a>
-            </div>
-            <div class="article">
-                <img src="../assets/images/productos/soporte gpu horizontal.png" />
-                <a class="producto"> Soporte horizontal de GPU</a>
-            </div>
-            <div class="article">
-                <img src="../assets/images/productos/usb.png" />
-                <a class="producto"> Kit cable usb</a>
-            </div>
-            <div class="article">
-                <img src="../assets/images/productos/sleeved 3.5.png" />
-                <a class="producto"> Cable forrado jack 3.5 estereo</a>
-            </div>
-            <div class="article">
-                <img src="../assets/images/productos/trenza jack 3,5.png" />
-                <a class="producto"> Cable trenzado forrado jack 3.5 estereo</a>
-            </div>
-            <div class="article">
-                <img src="../assets/images/productos/extension en L.png" />
-                <a class="producto"> kit extensiones en L</a>
-            </div>
-        </div>
-        <!-- final de productos -->
-        <!-- lista de paginas -->
-        <div class="paginacion">
-            <p> pagina:  </p>
-            <a class="itemPagina" href=""> < anterior </a>
-            <a class="itemPagina" href=""> 1 </a>
-            <a class="itemPagina" href=""> 2 </a>
-            <a class="itemPagina" href=""> 3 </a>
-            <a class="itemPagina" href=""> 4 </a>
-            <a class="itemPagina" href=""> 5 </a>
-            <a class="itemPagina" href=""> 6 </a>
-            <a class="itemPagina" href=""> 7 </a>
-            <a class="itemPagina"  href=""> siguiente > </a>
-        </div>
-        <div id="fondo"></div>
-        <div id="right">
-            <div id="imagenes">
-                <img src=""/> <!--imagen de producto-->
-            </div>
-            <div id="general">
-                <h2>Nombre del producto</h2>
-                <p>$xxxx.xx</p>
-                <form action="" method="get" enctype="multipart/form-data">
-                    <input class="boton" type="submit" value="Calcular Cuotas"/>
-                </form>
-                <img src="" href=""> <!--imagen de tarjetas con su link a las promociones bancarias-->
-                <img src="" href=""> <!--imagen de camion para envios-->
-                <form action="" method="get" enctype="multipart/form-data">
-                    <p>codigo postal</p>
-                    <input type="text" placeholder="CP"/>
-                </form>
-                <p>costo de envio: $xxx.xx</p>
-                <form action="" method="get" enctype="multipart/form-data">
-                    <p>cantidad</p>
-                    <select id="desplegable" name="asunto" style="display: block">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                    <input type="submit" value="sumar al carrito"/>
-                </form>
-            </div>
-            <div id="detalles">
-                <h3><hr>detalles</h3>
-                <p> tecnologia del producto </p>
-                <h4><hr>Especificaciones</h4>
-                <table>
-                    <tr>
-                        <th>Caracteristicas generales</th>
-                    </tr>
-                    <tr>
-                        <td>Largo</td>
-                        <td> xx Cm</td>
-                    </tr>
-                    <tr>
-                        <td>Ancho</td>
-                        <td> xx Cm</td>
-                    </tr>
-                    <tr>
-                        <td>Alto</td>
-                        <td> xx Cm</td>
-                    </tr>
-                    <tr>
-                        <td>Color</td>
-                        <td>RGB</td>
-                    </tr>
-                    <tr>
-                        <th>Accesorios incluidos</th>
-                    </tr>
-                    <tr>
-                        <td>pilas</td>
-                        <td>no</td>
-                    </tr>
-                    <tr>
-                        <td>Control remoto</td>
-                        <td>si</td>
-                    </tr>
-                    <tr>
-                        <td>Fuente</td>
-                        <td>si</td>
-                    </tr>
-                </table><hr>
-            </div>
-        </div>
+        
     </section>
     <footer>
         <div><a href="./sobre-nosotros.html">Sobre nosotros</a></div>
@@ -215,5 +41,6 @@
 </body>
 <script language="javascript" type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script src="../assets/js/tema.js" language="javascript" type="text/javascript"></script>
-<script src="../assets/js/producto.js" language="javascript" type="text/javascript"></script>
+<script src="../assets/js/pruebas.js" language="javascript" type="text/javascript"></script>
+<script src="../assets/js/index.js" language="javascript" type="text/javascript"></script>
 </html>

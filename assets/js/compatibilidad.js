@@ -174,14 +174,20 @@ class compat {
         i=0,c=0;
         while(i<this.placa.gens.length){
             while(c<this.cpu.gen.length){
-                if(this.placa.gens[i]!=this.cpu.gen[c]){
-                    errores.innerHTML+=`<h3>generaciones compatibles con la placa:  ${this.placa.gens[i]} / generacion del cpu: ${this.cpu.gen[c]}</h3>
-                    <p>La placa madre no es compatible con el procesador</p><br>`;
+                if(this.placa.gens[i]==this.cpu.gen[c]){
+                    break;
                 }
                 c++;
             }
+            if(this.placa.gens[i]==this.cpu.gen[c]){
+                break;
+            }
             c=0;
             i++;
+        }
+        if(c=0){
+            errores.innerHTML+=`<h3>generaciones compatibles con la placa:  ${this.placa.gens[i]} / generacion del cpu: ${this.cpu.gen[c]}</h3>
+            <p>La placa madre no es compatible con el procesador</p><br>`;
         }
         i=0;
         while(i<this.gabin.tamMothers.length&&this.gabin.tamMothers[i]!=this.placa.size){i++}

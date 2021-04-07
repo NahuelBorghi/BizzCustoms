@@ -651,7 +651,9 @@ form div {
     #compatibilidad #compat div {
       padding: 2%;
       height: 100%;
-      border: 1px solid #414E89; }
+      border: 1px solid #414E89;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #414E89; }
       #compatibilidad #compat div input[type="text"], #compatibilidad #compat div input[type="number"] {
         color: white;
         background-color: inherit;
@@ -680,7 +682,7 @@ form div {
       margin-left: 5%;
       grid-template-columns: 47% 47%;
       column-gap: 5%;
-      row-gap: 2%;
+      row-gap: 3%;
       justify-self: start;
       align-self: stretch;
       text-align: left;
@@ -733,6 +735,61 @@ form div {
     margin-left: 20%; }
     .slider img {
       max-height: 500px; } }
+
+.artiCarrito {
+  display: grid;
+  grid-template-areas: "img h3" "img total";
+  border: 1px solid #414e89;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #414E89;
+  margin: 3% 5%;
+  padding: 5%;
+  justify-content: start; }
+  .artiCarrito img {
+    grid-area: img;
+    height: 100px; }
+  .artiCarrito h3 {
+    grid-area: h3;
+    padding-left: 50px; }
+  .artiCarrito .total {
+    grid-area: total;
+    padding-left: 50px; }
+
+@media screen and (min-width: 900px) {
+  .artiCarrito img {
+    height: 150px; }
+  .artiCarrito h3 {
+    padding-left: 100px; }
+  .artiCarrito .total {
+    padding-left: 100px; } }
+
+@media screen and (min-width: 1200px) {
+  .artiCarrito {
+    padding: 2%;
+    margin: 3% 25%; }
+    .artiCarrito img {
+      height: 200px; }
+    .artiCarrito h3 {
+      padding-left: 150px; }
+    .artiCarrito .total {
+      padding-left: 150px; } }
+
+#total {
+  display: inline;
+  margin-left: 5%; }
+
+#vaciar {
+  position: absolute;
+  right: 5%;
+  background-color: inherit;
+  color: inherit;
+  padding: 7px;
+  border: 1px solid #414e89;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #414E89; }
+
+#carrito {
+  display: inline; }
 
 body {
   display: grid;
