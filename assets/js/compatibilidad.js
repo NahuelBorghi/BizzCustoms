@@ -370,6 +370,7 @@ function marca(){
             $("#mother").hide(500);
             break;
     }
+    tema();
 }
 function placaMadre(cpu){
     let gens;

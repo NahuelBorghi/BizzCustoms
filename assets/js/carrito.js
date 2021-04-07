@@ -116,6 +116,7 @@ function mostrarCarrito(){
     }
     hijo.innerHTML=`total = $ ${total}`;
     contenedor[0].prepend(hijo);
+    tema();
 }
 
 function sumarTotales(){
@@ -134,5 +135,5 @@ function sumarTotales(){
         acum+=parseFloat(fix);
         i++;
     }
-    return acum;
+    return acum.toFixed(2);
 }

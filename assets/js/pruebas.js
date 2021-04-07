@@ -105,7 +105,7 @@ class product {
                                     </div>
                                     <div>
                                     <form id="envio" name="envio" action="" method="get" enctype="multipart/form-data">
-                                        <p class="nombre">codigo postal</p>
+                                        <p class="nombre">Costo de envio</p>
                                         <span class="material-icons">local_shipping</span>
                                         <div class="contenido">
                                             <select id="desplegable" name="prov" >
@@ -196,11 +196,29 @@ class product {
         $("#cuotas").on("submit",()=>{return false;});
         document.cuotas.calcular.addEventListener("click",desplegar);
         let hijo = document.getElementById("ventanaCuotas");
-        let cuotas;
-        hijo.innerHTML=`<p>3 cuotas de $${cuotas=((parseFloat(this.precio)+parseFloat(this.precio*0.08))/3).toFixed(2)} -------> Total:$${parseFloat(cuotas)*3}</p><hr>
-                        <p>6 cuotas de $${cuotas=((parseFloat(this.precio)+parseFloat(this.precio*0.13))/6).toFixed(2)} -------> Total:$${parseFloat(cuotas)*6}</p><hr>
-                        <p>9 cuotas de $${cuotas=((parseFloat(this.precio)+parseFloat(this.precio*0.22))/9).toFixed(2)} -------> Total:$${parseFloat(cuotas)*9}</p><hr>
-                        <p>12 cuotas de $${cuotas=((parseFloat(this.precio)+parseFloat(this.precio*0.35))/12).toFixed(2)} -------> Total:$${parseFloat(cuotas)*12}</p><hr>`;
+        let cuotas3,cuotas6,cuotas9,cuotas12;
+        hijo.innerHTML=`<table id="tablaEnvios">
+        <tr>
+            <th>cuotas</th>
+            <th>Total</th>
+        </tr>
+        <tr>
+            <td><p>3 cuotas de $${cuotas3=((parseFloat(this.precio)+parseFloat(this.precio*0.08))/3).toFixed(2)}</p></td>
+            <td> <p>Total:$${parseFloat(cuotas3)*3}</p></td>
+        </tr>
+        <tr>
+            <td><p>6 cuotas de $${cuotas6=((parseFloat(this.precio)+parseFloat(this.precio*0.13))/6).toFixed(2)}</p></td>
+            <td> <p>Total:$${parseFloat(cuotas6)*6}</p></td>
+        </tr>
+        <tr>
+            <td><p>9 cuotas de $${cuotas9=((parseFloat(this.precio)+parseFloat(this.precio*0.22))/9).toFixed(2)}</p></td>
+            <td> <p>Total:$${parseFloat(cuotas9)*9}</p></td>
+        </tr>
+        <tr>
+            <td><p>12 cuotas de $${cuotas12=((parseFloat(this.precio)+parseFloat(this.precio*0.35))/12).toFixed(2)}</p></td>
+            <td> <p>Total:$${parseFloat(cuotas12)*12}</p></td>
+        </tr>
+        </table>`;
     }
     
 }

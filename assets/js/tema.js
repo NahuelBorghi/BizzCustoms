@@ -44,6 +44,9 @@ function temaOscuro(){
     article(tag);
     filtros (tag);
     contacto(tag);
+    artiCarrito (tag);
+    vaciare (tag);
+    formCompati (tag)
 }
 
 function temaClaro(){
@@ -75,6 +78,9 @@ function temaClaro(){
     article (tag);
     filtros (tag);
     contacto(tag);
+    artiCarrito (tag);
+    vaciare (tag);
+    formCompati (tag)
 }
 
 // 0= claro 1=oscuro
@@ -194,6 +200,156 @@ function article (tag){
         }
     }
 }
+
+function artiCarrito (tag) {
+    let estilo;
+    for (var i = 0; i < 25; i++){
+        estilo = document.getElementsByClassName("artiCarrito")[i];
+        if (estilo == undefined){
+            break;
+        }
+        if (tag == 0){
+            estilo.style.boxShadow = "0 0.2rem 0.5rem var(--primario)";
+            estilo.style.borderColor = secundario;
+            estilo.style.boxShadow = "0 0 10px" + secundario;
+        }else if (tag == 1){
+            estilo.style.boxShadow = "0 0.2rem 0.5rem var(--secundario)";
+            estilo.style.borderColor = primario;
+            estilo.style.boxShadow = "0 0 10px" + primario;
+        }
+    }
+}
+
+function vaciare (tag) {
+    let estilo;
+    for (var i = 0; i < 25; i++){
+        estilo = document.getElementById("vaciar");
+        if (estilo == undefined){
+            break;
+        }
+        if (tag == 0){
+            estilo.style.boxShadow = "0 0.2rem 0.5rem var(--primario)";
+            estilo.style.borderColor = secundario;
+            estilo.style.boxShadow = "0 0 10px" + secundario;
+        }else if (tag == 1){
+            estilo.style.boxShadow = "0 0.2rem 0.5rem var(--secundario)";
+            estilo.style.borderColor = primario;
+            estilo.style.boxShadow = "0 0 10px" + primario;
+        }
+    }
+}
+
+function formCompati (tag) {
+    let estilo;
+    for (var i = 0; i < 2; i++){
+        estilo = document.getElementById("marca");
+        if (estilo == undefined){
+            break;
+        }
+        if (tag == 0){
+            estilo.style.boxShadow = "0 0.2rem 0.5rem var(--primario)";
+            estilo.style.borderColor = secundario;
+            estilo.style.boxShadow = "0 0 10px" + secundario;
+        }else if (tag == 1){
+            estilo.style.boxShadow = "0 0.2rem 0.5rem var(--secundario)";
+            estilo.style.borderColor = primario;
+            estilo.style.boxShadow = "0 0 10px" + primario;
+        }
+        estilo = document.getElementById("mother");
+        if (estilo == undefined){
+            break;
+        }
+        if (tag == 0){
+            estilo.style.boxShadow = "0 0.2rem 0.5rem var(--primario)";
+            estilo.style.borderColor = secundario;
+            estilo.style.boxShadow = "0 0 10px" + secundario;
+        }else if (tag == 1){
+            estilo.style.boxShadow = "0 0.2rem 0.5rem var(--secundario)";
+            estilo.style.borderColor = primario;
+            estilo.style.boxShadow = "0 0 10px" + primario;
+        }
+        estilo = document.getElementById("cpu");
+        if (estilo == undefined){
+            break;
+        }
+        if (tag == 0){
+            estilo.style.boxShadow = "0 0.2rem 0.5rem var(--primario)";
+            estilo.style.borderColor = secundario;
+            estilo.style.boxShadow = "0 0 10px" + secundario;
+        }else if (tag == 1){
+            estilo.style.boxShadow = "0 0.2rem 0.5rem var(--secundario)";
+            estilo.style.borderColor = primario;
+            estilo.style.boxShadow = "0 0 10px" + primario;
+        }
+        estilo = document.getElementById("ram");
+        if (estilo == undefined){
+            break;
+        }
+        if (tag == 0){
+            estilo.style.boxShadow = "0 0.2rem 0.5rem var(--primario)";
+            estilo.style.borderColor = secundario;
+            estilo.style.boxShadow = "0 0 10px" + secundario;
+        }else if (tag == 1){
+            estilo.style.boxShadow = "0 0.2rem 0.5rem var(--secundario)";
+            estilo.style.borderColor = primario;
+            estilo.style.boxShadow = "0 0 10px" + primario;
+        }
+        estilo = document.getElementById("gpu");
+        if (estilo == undefined){
+            break;
+        }
+        if (tag == 0){
+            estilo.style.boxShadow = "0 0.2rem 0.5rem var(--primario)";
+            estilo.style.borderColor = secundario;
+            estilo.style.boxShadow = "0 0 10px" + secundario;
+        }else if (tag == 1){
+            estilo.style.boxShadow = "0 0.2rem 0.5rem var(--secundario)";
+            estilo.style.borderColor = primario;
+            estilo.style.boxShadow = "0 0 10px" + primario;
+        }
+        estilo = document.getElementById("discos");
+        if (estilo == undefined){
+            break;
+        }
+        if (tag == 0){
+            estilo.style.boxShadow = "0 0.2rem 0.5rem var(--primario)";
+            estilo.style.borderColor = secundario;
+            estilo.style.boxShadow = "0 0 10px" + secundario;
+        }else if (tag == 1){
+            estilo.style.boxShadow = "0 0.2rem 0.5rem var(--secundario)";
+            estilo.style.borderColor = primario;
+            estilo.style.boxShadow = "0 0 10px" + primario;
+        }
+        estilo = document.getElementById("refri");
+        if (estilo == undefined){
+            break;
+        }
+        if (tag == 0){
+            estilo.style.boxShadow = "0 0.2rem 0.5rem var(--primario)";
+            estilo.style.borderColor = secundario;
+            estilo.style.boxShadow = "0 0 10px" + secundario;
+        }else if (tag == 1){
+            estilo.style.boxShadow = "0 0.2rem 0.5rem var(--secundario)";
+            estilo.style.borderColor = primario;
+            estilo.style.boxShadow = "0 0 10px" + primario;
+        }
+        estilo = document.getElementById("gabinete");
+        if (estilo == undefined){
+            break;
+        }
+        if (tag == 0){
+            estilo.style.boxShadow = "0 0.2rem 0.5rem var(--primario)";
+            estilo.style.borderColor = secundario;
+            estilo.style.boxShadow = "0 0 10px" + secundario;
+        }else if (tag == 1){
+            estilo.style.boxShadow = "0 0.2rem 0.5rem var(--secundario)";
+            estilo.style.borderColor = primario;
+            estilo.style.boxShadow = "0 0 10px" + primario;
+        }
+    }
+}
+
+
 function busqueda(){
     alert('buscaste "'+$('#buscar').val()+'"');
     return false;}

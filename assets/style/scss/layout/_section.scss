@@ -315,6 +315,12 @@ form{
         form[name="cuotas"]{
             input{
                 display: block;
+                background-color: inherit;
+                color: inherit;
+                padding: 7px;
+                border: 1px solid rgba($primario, $alpha: 1.0);
+                border-radius: 10px;
+                box-shadow: 0 0 20px $primario;
             }
             span{
                 float: right;
@@ -323,13 +329,48 @@ form{
             }
         }
         form[name="envio"]{
+            select{
+                background-color: inherit;
+                color: inherit;
+                padding: 7px;
+                border: 1px solid rgba($primario, $alpha: 1.0);
+                border-radius: 10px;
+                box-shadow: 0 0 20px $primario;
+            }
+            option{
+                color: black;
+            }
             span{
                 float: right;
                 clear: both;
                 padding-bottom: 10%;
             }
+            #borrar{
+                padding-bottom: 50px;
+                margin-left: 10px;
+            }
         }
         form[name="cantidad"]{
+            input{
+                background-color: inherit;
+                color: inherit;
+                padding: 7px;
+                border: 1px solid rgba($primario, $alpha: 1.0);
+                border-radius: 10px;
+                box-shadow: 0 0 20px $primario;
+            }
+            select{
+                background-color: inherit;
+                color: inherit;
+                padding: 7px;
+                border: 1px solid rgba($primario, $alpha: 1.0);
+                border-radius: 10px;
+                box-shadow: 0 0 20px $primario;
+                margin-right: 5px;
+            }
+            option{
+                color: black;
+            }
             span{
                 float: right;
                 clear: both;
@@ -363,7 +404,6 @@ form{
     z-index: 2;
 }
 #ventanaCuotas{
-    background-color: white;
     color: black;
     z-index: 3;
     position:fixed;
@@ -552,19 +592,19 @@ form{
 }
 @media screen and(min-width:900px){
     .slider{
-        width: 80%;
-        margin-left: 10%;
+        width: 90%;
+        margin-left: 5%;
         img{
-            max-height: 400px;
+            max-height: 600px;
         }
     }
 }
-@media screen and(min-width:1200px){
+@media screen and(max-width:1200px){
     .slider{
-        width: 60%;
-        margin-left: 20%;
+        width: 70%;
+        margin-left: 15%;
         img{
-            max-height: 500px;
+            max-height: 700px;
         }
     }
 }
@@ -635,4 +675,30 @@ form{
 }
 #carrito{
     display: inline;
+}
+#tablaEnvios{
+    table-layout: fixed;
+    width: 100%;
+    height: 100%;
+    border: 3px solid rgba($secundario, $alpha: 1.0);
+    border-radius: 10px;
+    border-collapse: collapse;
+    background-color: white;
+    thead th:nth-child(1) {
+    width: 10%;
+    }
+    thead th:nth-child(2) {
+    width: 5%;
+    }
+    thead th:nth-child(3) {
+    width: 0%;
+    }
+    thead th:nth-child(4) {
+    width: 15%;
+    }
+    th, td {
+    padding: 10px;
+    border-collapse: collapse;
+    border: 3px solid rgba($secundario, $alpha: 1.0);
+    }
 }
