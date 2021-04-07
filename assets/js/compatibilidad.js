@@ -220,11 +220,11 @@ class compat {
                 }
             }
         }else if(this.placa.video=="si"){
+            errores.innerHTML+=`<h3>Salida de video en mother: ${this.placa.video} /vs/ cpu con video integrado: ${this.cpu.apu}</h3>
+            <p>es 100% necesaria una placa de video dedicada</p><br>`;
+        }else{
             pro.innerHTML+=`<h3>Salida de video en mother: ${this.placa.video} /vs/ cpu con video integrado: ${this.cpu.apu}</h3>
             <p>No es 100% necesaria una placa de video dedicada</p><br>`;
-        }else{
-            contra.innerHTML+=`<h3>Salida de video en mother: ${this.placa.video} /vs/ cpu con video integrado: ${this.cpu.apu}</h3>
-            <p>es 100% necesaria una placa de video dedicada</p><br>`;
         }
 
         i=0;
