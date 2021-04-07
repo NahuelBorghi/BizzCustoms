@@ -123,7 +123,9 @@ header {
   display: flex;
   justify-content: space-around; }
   header .carrito {
-    height: 100%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
@@ -252,11 +254,7 @@ footer {
   margin-top: 10px;
   color: #414E89;
   width: 100%;
-  height: 70%; }
-
-@media only screen and (max-width: 768px) {
-  .contacto {
-    height: 90%; } }
+  height: 90%; }
 
 .contacto hr {
   display: none; }
@@ -279,7 +277,7 @@ footer {
 
 @media only screen and (max-width: 900px) {
   .contacto .redes {
-    width: 25%; } }
+    width: 35%; } }
 
 .contacto .mail {
   width: 40%;
@@ -348,7 +346,7 @@ footer {
 
 @media only screen and (max-width: 900px) {
   .contacto .mail {
-    width: 35%; } }
+    width: 50%; } }
 
 .listaArticulos {
   display: grid;
@@ -420,10 +418,11 @@ form div {
 
 #right {
   position: absolute;
-  left: 30%;
+  left: 10%;
   top: 18%;
   height: auto;
-  width: 67.5%;
+  width: 88%;
+  color: white;
   background-color: #212121;
   border: 2px solid #414E89;
   border-radius: 10px;
@@ -451,14 +450,17 @@ form div {
       -o-object-fit: contain;
       object-fit: contain; }
 
+@media screen and (min-width: 900px) {
+  #right {
+    left: 30%;
+    width: 67.5%; } }
+
 #general {
-  display: grid;
-  grid-template-columns: repeat(3, 33%);
-  grid-auto-rows: 40%;
-  grid-gap: 5px;
-  grid-auto-flow: row dense;
+  display: flex;
+  flex-direction: column;
   justify-items: center;
-  align-items: center; }
+  width: 50%;
+  margin-left: 25%; }
   #general div:first-child {
     width: auto;
     height: auto;
@@ -469,9 +471,10 @@ form div {
     border-radius: 0px;
     box-shadow: 0 0 0px #414E89; }
   #general div {
-    width: 80%;
-    height: 110%;
+    width: 100%;
+    height: 100%;
     padding: 7px;
+    margin-bottom: 8%;
     border: 2px solid #414E89;
     border-radius: 10px;
     box-shadow: 0 0 15px #414E89; }
@@ -555,6 +558,21 @@ form div {
       border-radius: 0px;
       box-shadow: 0 0 0px #414E89; }
 
+@media screen and (min-width: 900px) {
+  #general {
+    display: grid;
+    grid-template-columns: repeat(3, 33%);
+    grid-auto-rows: 40%;
+    grid-gap: 5px;
+    grid-auto-flow: row dense;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    margin-left: 0%; }
+    #general div {
+      width: 80%;
+      margin-bottom: 0%; } }
+
 #detalles h3 {
   display: inline; }
 
@@ -562,10 +580,10 @@ form div {
   float: right; }
 
 #fondoCuotas {
-  position: absolute;
+  position: fixed;
   left: 0%;
   top: 0%;
-  height: 130%;
+  height: 100%;
   width: 100%;
   background-color: #212121AA;
   z-index: 2; }
@@ -574,10 +592,20 @@ form div {
   color: black;
   z-index: 3;
   position: fixed;
-  top: 30%;
-  left: 30%;
-  height: 40%;
-  width: 40%; }
+  top: 25%;
+  left: 25%;
+  height: 50%;
+  width: 50%; }
+
+@media screen and (min-width: 900px) {
+  #fondoCuotas {
+    height: 130%;
+    width: 100%; }
+  #ventanaCuotas {
+    top: 30%;
+    left: 30%;
+    height: 40%;
+    width: 40%; } }
 
 #compatibilidad {
   display: grid;
